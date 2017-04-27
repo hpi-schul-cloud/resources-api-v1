@@ -63,11 +63,12 @@ Attributes:
 - **class** (optional)  
   An array specifying the recommended school class.
   Examples: `[7]`, `[8, 9]`
+  **TODO**: verify that this is important.
 - **thumbnail** (optional)  
   A url to the preview image.
   This could be the first page of a PDF, a small version of an SVG or PNG image.
 - **size** (optional)  
-  The size inbytes to download the source.  
+  The size in bytes to download the source.  
   This is recommended for pictures, PDFs, ...
   Interactive content may vary in size, so this is not a must.  
   Reference: [IEEE LOM, 4.2][ieee-lom]
@@ -77,7 +78,8 @@ Attributes:
   **TODO**: speicify the dimensions.
 - **duration** (optional)  
   Form movies and clips, things that take time, this is the duration it takes
-  to go though the object in default time.  
+  to go though the object in default time.
+  The unit is seconds. The type is float.  
   Reference: [IEEE LOM, 4.7][ieee-lom]
 - **contextUrl** (optional)  
   This is the url with moer context about the `url`.
@@ -104,7 +106,9 @@ These are the API endpoints defined in the [documentation][arch].
 - `GET /v1/ressources?$skip=SKIP?$limit=LIMIT`  
   Returns a paginated list of ressources, see [the search result][search].
 - `POST /v1/ressources`  
-  Add a list of ressources.
+  Add a ressource.
+  Get the ressource back as the server sees it.
+  
 
 
 
@@ -152,7 +156,7 @@ These are the API endpoints defined in the [documentation][arch].
   ```
   - `data` is a list of ressource objects sorted by relevance
   - Headers:
-    - `link` as defined in [RFC5988](https://tools.ietf.org/html/rfc5988)  
+    - `Link` as defined in [RFC5988](https://tools.ietf.org/html/rfc5988)  
       Relations: 
       - `previous` defined by all but the first page
       - `next` defined by all but the last page
@@ -194,6 +198,7 @@ TODO
 
 ## Further Reading
 - [README Driven Development][rdd]
+- [HTTP statuses](https://httpstatuses.com/)
 
 [rdd]: http://tom.preston-werner.com/2010/08/23/readme-driven-development.html
 [arch]: https://schul-cloud.github.io/blog/2017-04-24/extensible-content-delivery#architecture
