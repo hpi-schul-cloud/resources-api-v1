@@ -20,7 +20,9 @@ To verify your requests and responses, the is specified as follows:
 - The `schema` folder contains the JSON-Schema to verify the different formats
 - The `docker` folder contains a test-endpoint which can be used to test you application against.
 
+## Endpoints
 
+- TODO
 
 
 
