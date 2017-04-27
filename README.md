@@ -58,7 +58,7 @@ Attributes:
 - **languages** (required)  
   A list of languages given by country code.
   This is specified in [IEEE-LOM, Section 1.3][ieee-lom]
-  Exmaples: `de`, `de-ch`
+  Examples: `de`, `de-ch`
 - **class** (optional)  
   An array specifying the recommended school class.
   Examples: `[7]`, `[8, 9]`
