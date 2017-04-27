@@ -12,4 +12,4 @@ def get_ressource(ressourceId) -> str:
     return 'do some magic!'
 
 def get_ressources() -> str:
-    return 'do some magic!2'
+    return 'do some magic!'
