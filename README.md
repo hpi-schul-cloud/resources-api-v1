@@ -47,6 +47,7 @@ To verify your requests and responses, the is specified as follows:
     All objects returned must have the filter applied.
     Filtering must work with strings. It can work with other types.
     If an attribute is filtered which is an array, the value must be inside the array.
+    If an attribute is filtered but not present, the object is not chosen.
     Example:
     ```
     objects: [ {"license": ["MIT", "GPL"]}, {"license": ["MIT"]} ]
