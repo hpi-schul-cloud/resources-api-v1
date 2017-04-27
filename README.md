@@ -9,7 +9,7 @@ If you like to work on this on bring in new ideas, you can open an issue and dis
 
 To verify your requests and responses, the is specified as follows:
 - This README contains a complete description of
-  - Objects 
+  - [Objects][objects]
     - with all attributes
     - their description
     - examples
@@ -21,6 +21,7 @@ To verify your requests and responses, the is specified as follows:
 - The `docker` folder contains a test-endpoint which can be used to test you application against.
 
 ## Objects
+[objects]: #objects
 
 The object specification is based on talks with
 - Arne Oberlander
@@ -87,9 +88,6 @@ Attributes:
     contextUrl is https://en.wikipedia.org/wiki/File:LOM_base_schema.svg
 
 
-
-
-
 ### Content Category
 [content-category]: #content-category
 
@@ -97,10 +95,25 @@ Attributes:
 ## Endpoints
 [endpoints]: #endpoints
 
-  
-### Search
+These are the API endpoints defined in the [documentation][arch].
 
-- **/v1/search?q=WORDS?ATTRBUTE=...&ATTRBIUTE2=...?$skip=SKIP?$limit=LIMIT**  
+### Ressources
+
+[Current Swagger implementation][swag1]
+
+- `GET /v1/ressources?$skip=SKIP?$limit=LIMIT`  
+  Returns a paginated list of ressources, see [the search result][search].
+- `POST /v1/ressources`  
+  Add a list of ressources.
+
+
+
+
+
+### Search
+[search]: #search
+
+- `GET /v1/search?q=WORDS?ATTRBUTE=...&ATTRBIUTE2=...&$skip=SKIP?$limit=LIMIT`  
   Inspiration: [feathers](https://docs.feathersjs.com/api/databases/querying.html)
   - **q** (required)  
     The query string `WORDS`. They should search at least these object attributes:
@@ -187,3 +200,4 @@ TODO
 [content-crawl-api]: https://github.com/schul-cloud/schulcloud-content-crawler#attributes
 [rfc2046]: https://tools.ietf.org/html/rfc2046
 [ieee-lom]: http://129.115.100.158/txlor/docs/IEEE_LOM_1484_12_1_v1_Final_Draft.pdf
+[swag-1]: https://app.swaggerhub.com/apis/niccokunzmann/schul-cloud-content-api/1.0.0
