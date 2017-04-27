@@ -11,5 +11,5 @@ def delete_ressources() -> str:
 def get_ressource(ressourceId) -> str:
     return 'do some magic!'
 
-def get_ressources($skip = None, $limit = None) -> str:
+def get_ressources() -> str:
     return 'do some magic!'

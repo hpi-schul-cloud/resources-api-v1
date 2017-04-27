@@ -34,19 +34,7 @@ paths:
       - "application/json"
       produces:
       - "application/json"
-      parameters:
-      - name: "$skip"
-        in: "query"
-        description: "number of items to skip"
-        required: false
-        type: "integer"
-        format: "int32"
-      - name: "$limit"
-        in: "query"
-        description: "max records to return"
-        required: false
-        type: "integer"
-        format: "int32"
+      parameters: []
       responses:
         200:
           description: "Ressources are listed."
