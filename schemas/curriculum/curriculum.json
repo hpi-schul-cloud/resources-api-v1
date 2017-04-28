@@ -1,0 +1,8 @@
+{
+  "enum" : [
+    "KMK :: Thüringen :: Deutsch :: 1978",
+    "KMK :: Thüringen :: Deutsch :: 1979"
+  ],
+  "id": "https://github.com/schul-cloud/ressources-api-v1/raw/master/schemas/curriculum/curriculum.json",
+  "$schema": "http://json-schema.org/draft-04/schema#"
+}
