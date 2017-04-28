@@ -2,8 +2,13 @@ language: python
 python:
 - "3.5"
 
+env:
+  global:
+  - secure: "qp45OTKp0vZs25dKPPKbHUlKOaS6VsZQAjN69EoWkmx57FfaaTwTyn8ivMotenhVi0/rkCdDAU/cv6SMsQgnWk0VmQtHLhbJUTM3jnPPvGaRr8+gIuugYvJSzvfkv8EJmF1OmEdyxlL96Unj8SKsMTnSTMVzYozaQd7FwHGgmllOG3N2Pcf1nLl7yv4V1IoJJhc6JlFCn8V5Vsd/h3SmqF2uuXHSI/dhtDp4ZAAWU3Wzs5e5AoDmjYdadQG70tzVxnapTLFMbbQnubySWx6J4gKXmqF1HvB7tILQ2/GBFQAbVOxXvscb9S5g78tw/En8xYGVtAdcWrxmsPZ91wUu4ziyURgFHRzgKZvdXiSikpCp4sRH1OTJc74AvmScgy9RF22JRr6wZy6C4tkawV8fsBgyvq9A3NGg4g2diOZp9+UvSw0koQYIxrmAMn/B6z7JYC/NhEv33eTq/P/s7tzmXkd231LexBtG6eW8Hq3807msDbEgC9A8Fw7apdERYaACpXSDQpHMixukjUbWp9yo4Me8scVwzgDgXt0y2mVv6jlqOwETvTEzI2bcckHUnb3RLRlN72g9rW137vU00VE7J4hstbFdwkWkI81oHfDmYpTPBwN+LlDvUYSFrwDltS8mthN6eAYvXEKN6UIg/SuFg45yBT7/E1V2Fj4Br50v5yM=" # PYPI_PASSWORD
+  - PYPI_USER=niccokunzmann2
+
 install:
-- pip install -r schemas/test/requirements.txt
+- pip install -r schemas/test/requirements.txt twine
 - sudo apt-get install default-jre
 
 script:
@@ -15,10 +20,8 @@ before_deploy:
 - cp generators/python_client/dist/* dist
 
 deploy:
-- provider: pypi # https://docs.travis-ci.com/user/deployment/pypi
-  user: niccokunzmann2
-  password:
-    secure: "vmNJgJUi9zRegguSvzMvHTIDT8Sm4EIRS5DIpEybJqnVS/7QTjrjLNaKYhtQOhSZ8UmJts1yBwKotkbuCxylUjrDHzY28mGFMhQjsRZoJGb9AXlfjHMysJSrYCcHNwx1n6DMSgrQcLvV9qq2MQi+g76YNTQdv3k+lC+LJ8YBsZhNXo7UcbBMloBcwCYBNgszQERbZStldH2FFjx5ODL5wqmpLvwdEWCBbtPjfI6jdYrR/S+EGotq99bleLFjlrdEQNPOPFhoB5Tti5XGXXl/RLbrDMgoJBB+e2lXmtPA2wrC8xe4dBlEZlZJccmQUN/sZe0bRCi1Zaj89utQJ6UBJRLohwFkeWAeNcVLfySn8cLH2gZvSXcqxPkf3imSnOc+VssWYuZuOxJAFC7LQph7FCxy0/ytHmMwhFxI4jC7XlGVe5jedrd2+VtUZhd97barGKDDeOaL17pMGiJ6nZTImJATezk6ohfsRYBK5IDIOsYNxYHmsl3jV/6sJgTL9DFKWHcOpSyYotnHMGpOEMBZ72RfLUFgG34+Bu3Z5060Cjg6u67j1+anZ1lkIRBvHgFFkXL8FfCZGqWxAqhRT13vve44UboWnEpX+sAexw8OfUJIwFT/slQPyH/ZJGk7uNIJiPVkw+yqZgcL/gG4wZM2bN/P9s7z1otbYZxUzv1ShtE="
+- provider: script
+  script: twine upload dist/*
   on:
     branch: master
   repo: schul-cloud/ressources-api-v1
