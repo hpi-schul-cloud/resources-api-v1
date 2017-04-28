@@ -25,9 +25,9 @@ echo
 
 (
   cd "$output"
-  python3 -m pip install --user -r requirements.txt \
-                                -r test-requirements.txt \
-                                wheel
+  python3 -m pip install -r requirements.txt \
+                         -r test-requirements.txt \
+                         wheel
   python3 -m nosetests
   python3 setup.py sdist bdist_wheel
 )
