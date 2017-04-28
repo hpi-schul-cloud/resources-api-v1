@@ -15,9 +15,12 @@ script:
 - python schemas/test/test_schemas.py
 - generators/generate_python_client.sh
 
+before_deploy:
+- scripts/create_pypi_login_for_travis.sh
+
 deploy:
 - provider: script
-  script: ./deploy.sh
+  script: scripts/deploy.sh
   on:
     branch: master
   repo: schul-cloud/ressources-api-v1
