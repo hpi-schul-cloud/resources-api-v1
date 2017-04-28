@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://github.com/schul-cloud/ressources-api-v1/raw/master/schemas/license/license.json",
+  "title": "License",
+  "description": "Please view the description of the schema here: https://github.com/schul-cloud/ressources-api-v1/tree/master/schemas/license",
+  "type": "object",
+  "properties": {
+    "id" : {
+      "type": "string"
+    }
+  },
+  "required": [ "id" ],
+  "oneOf" : [
+    {
+      "$ref": "#/definitions/basiclicense",
+      "type": "object",
+      "properties": {
+        "id" : { "enum" : ["undefined"] }
+      }
+    }
+  ],
+  "definitions": {
+  }
+}
