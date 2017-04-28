@@ -1,7 +1,7 @@
 # ressources-api-v1
 
-[![Build Status](https://travis-ci.org/schul-cloud/ressources-api-v1.svg?branch=master)](https://travis-ci.org/schul-cloud/ressources-api-v1)
-[![PyPI](https://img.shields.io/pypi/v/schul-cloud-ressources-api-v1.svg)](https://pypi.python.org/pypi/schul-cloud-ressources-api-v1)
+[![Build Status](https://travis-ci.org/schul-cloud/ressources-api-v1.svg?branch=master)][travis]
+[![PyPI](https://img.shields.io/pypi/v/schul-cloud-ressources-api-v1.svg)][pypi]
 
 The API specification to add content to the Schul-Cloud.
 This is the [Ressources API form the architecture][arch]
@@ -208,6 +208,16 @@ TODO
 
 - Example: http://dsb-client.readthedocs.io/en/latest/descriptions.html
 
+## Automated Build
+
+The automated build is done by [Travis-CI][travis].
+It does the following:
+
+- test the [schemas][schemas] for validity, usind the tests.
+- test the [api-definition][api-definition] for validity
+- generate a [Python client][pypi]
+- TODO: generates a test package for the API
+
 ## Further Reading
 - [README Driven Development][rdd]
 - [HTTP statuses](https://httpstatuses.com/)
@@ -218,3 +228,7 @@ TODO
 [rfc2046]: https://tools.ietf.org/html/rfc2046
 [ieee-lom]: http://129.115.100.158/txlor/docs/IEEE_LOM_1484_12_1_v1_Final_Draft.pdf
 [swag-1]: https://app.swaggerhub.com/apis/niccokunzmann/schul-cloud-content-api/1.0.0
+[schemas]: ./schemas
+[api-definition]: ./api-definition/
+[pypi]: https://pypi.python.org/pypi/schul-cloud-ressources-api-v1
+[travis]: https://travis-ci.org/schul-cloud/ressources-api-v1
