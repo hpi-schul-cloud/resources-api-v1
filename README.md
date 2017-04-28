@@ -43,6 +43,15 @@ Attributes:
 - **provider** (required)  
   The entity providing this information, e.g. "Westermann" or "Schul-Cloud user xyz"
   **TODO**: Ask tutory about their model for remix. Maybe this flows into the license.
+- **providerLevel** (??)  
+  The source can be classified like this:
+  - `schul-cloud` - totally trusted information
+  - `community` - we know who created this information
+  - `external` - someone on the web gave us this information (no authentication)
+  The idea:
+  - The search always displays schul-cloud and community ressources
+  - external ressources are not displayed to kids, teachers can choose
+  **TODO**: discuss
 - **mimeType** (required)  
   The mime type as defined in [RFC2046][rfc2046]
 - **contentCategory** (required)  
