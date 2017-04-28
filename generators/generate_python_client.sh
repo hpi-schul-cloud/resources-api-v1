@@ -2,7 +2,7 @@
 
 cd "`dirname \"$0\"`"
 
-folder="output"
+output="python_client"
 version_ending=""
 config="python_client_config.json"
 if [ -n "$TRAVIS_BUILD_NUMBER" ]; then
@@ -14,7 +14,7 @@ fi
 # config values from
 #   java -jar generators/swagger-codegen-cli-2.2.2.jar config-help -l python
 echo "{
-        \"packageName\": \"schul_cloud_ressource_api_v1\",
+        \"packageName\": \"schul_cloud_ressources_api_v1\",
         \"packageVersion\" : \"1.0.0$version_ending\",
         \"packageUrl\" : \"https://github.com/schul-cloud/ressources-api-v1\"
       }" > "$config"
