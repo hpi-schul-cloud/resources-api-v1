@@ -4,5 +4,6 @@
     "KMK :: Thüringen :: Deutsch :: 1979"
   ],
   "id": "https://github.com/schul-cloud/ressources-api-v1/raw/master/schemas/curriculum/curriculum.json",
-  "$schema": "http://json-schema.org/draft-04/schema#"
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Please view the description of the schema here: https://github.com/schul-cloud/ressources-api-v1/tree/master/schemas/curriculum"
 }
