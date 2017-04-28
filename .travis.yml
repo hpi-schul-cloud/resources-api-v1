@@ -21,3 +21,4 @@ deploy:
   on:
     branch: master
   repo: schul-cloud/ressources-api-v1
+  skip_cleanup: true
