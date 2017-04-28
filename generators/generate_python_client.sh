@@ -7,7 +7,7 @@ version_ending=""
 config="python_client_config.json"
 if [ -n "$TRAVIS_BUILD_NUMBER" ]; then
   # see https://docs.travis-ci.com/user/environment-variables/
-  version_ending="-build-$TRAVIS_BUILD_NUMBER-commit-${TRAVIS_COMMIT:0:7}"
+  version_ending="_build_${TRAVIS_BUILD_NUMBER}_commit_${TRAVIS_COMMIT:0:7}"
 fi
 
 
