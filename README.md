@@ -1,6 +1,7 @@
 # ressources-api-v1
 
 [![Build Status](https://travis-ci.org/schul-cloud/ressources-api-v1.svg?branch=master)](https://travis-ci.org/schul-cloud/ressources-api-v1)
+[![PyPI](https://img.shields.io/pypi/v/schul-cloud-ressources-api-v1.svg)](https://pypi.python.org/pypi/schul-cloud-ressources-api-v1)
 
 The API specification to add content to the Schul-Cloud.
 This is the [Ressources API form the architecture][arch]
