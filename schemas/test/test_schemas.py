@@ -45,19 +45,15 @@ def load_json_from_file(file_name):
         raise
         
 def test_files(name, case):
-    dir = os.path.join(SCHEMAS, name, "tests", case)
-    return [os.path.join(dirpath, file)
-            for dirpath, dirnames, filenames in os.walk(dir)
-            for file in filenames]
+    dir = os.path.join(SCHEMAS, name, "examples", case)
+    files = [os.path.join(dirpath, file)
+             for dirpath, dirnames, filenames in os.walk(dir)
+             for file in filenames]
+    return files
 
 def test_schema(name, schema, message):
-    """Test a schema against all files starting with `name`
-    
-    - name_works.json files are expected to be valid
-    - name_fails.json files are expected to be invalid
-    """
-    works = test_files(name, "works")
-    fails = test_files(name, "fails")
+    works = test_files(name, "valid")
+    fails = test_files(name, "invalid")
     for validate, files in [(schema_works, works), (schema_fails, fails)]:
         for file in files:
             instance = load_json_from_file(file)
