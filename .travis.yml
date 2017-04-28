@@ -1,0 +1,25 @@
+language: python
+python:
+- "3.5"
+
+install:
+- pip install -r schemas/test/requirements.txt
+- sudo apt-get install default-jre
+
+script:
+- python schemas/test/test_schemas.py
+- generators/generate_python_client.sh
+
+before_deploy:
+- mkdir dist
+- cp generators/python_client/dist/* dist
+
+deploy:
+- provider: pypi # https://docs.travis-ci.com/user/deployment/pypi
+  user: niccokunzmann2
+  password:
+    secure: "vmNJgJUi9zRegguSvzMvHTIDT8Sm4EIRS5DIpEybJqnVS/7QTjrjLNaKYhtQOhSZ8UmJts1yBwKotkbuCxylUjrDHzY28mGFMhQjsRZoJGb9AXlfjHMysJSrYCcHNwx1n6DMSgrQcLvV9qq2MQi+g76YNTQdv3k+lC+LJ8YBsZhNXo7UcbBMloBcwCYBNgszQERbZStldH2FFjx5ODL5wqmpLvwdEWCBbtPjfI6jdYrR/S+EGotq99bleLFjlrdEQNPOPFhoB5Tti5XGXXl/RLbrDMgoJBB+e2lXmtPA2wrC8xe4dBlEZlZJccmQUN/sZe0bRCi1Zaj89utQJ6UBJRLohwFkeWAeNcVLfySn8cLH2gZvSXcqxPkf3imSnOc+VssWYuZuOxJAFC7LQph7FCxy0/ytHmMwhFxI4jC7XlGVe5jedrd2+VtUZhd97barGKDDeOaL17pMGiJ6nZTImJATezk6ohfsRYBK5IDIOsYNxYHmsl3jV/6sJgTL9DFKWHcOpSyYotnHMGpOEMBZ72RfLUFgG34+Bu3Z5060Cjg6u67j1+anZ1lkIRBvHgFFkXL8FfCZGqWxAqhRT13vve44UboWnEpX+sAexw8OfUJIwFT/slQPyH/ZJGk7uNIJiPVkw+yqZgcL/gG4wZM2bN/P9s7z1otbYZxUzv1ShtE="
+  on:
+    branch: master
+  repo: schul-cloud/ressources-api-v1
+  distributions: "sdist bdist_wheel"
