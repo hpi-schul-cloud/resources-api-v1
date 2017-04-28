@@ -38,7 +38,7 @@ def schema_fails(schema, instance):
         
 def load_json_from_file(file_name):
     try:
-        with open(os.path.join(HERE, file_name)) as f:
+        with open(os.path.join(file_name)) as f:
             return json.load(f)
     except ValueError:
         print(file_name)
