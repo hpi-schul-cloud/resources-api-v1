@@ -212,10 +212,7 @@ definitions:
   inline_response_200:
     required:
     - "id"
-    - "url"
     properties:
-      url:
-        $ref: "#/definitions/URL"
       id:
         type: "string"
     description: "The location and identifier of the posted object"
