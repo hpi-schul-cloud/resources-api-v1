@@ -16,7 +16,8 @@ HERE = os.path.dirname(__file__) or "."
 SCHEMAS = os.path.join(HERE, "..")
 # add schemas to test below
 schemas = {
-    "curriculum" : os.path.join(SCHEMAS, "curriculum", "curriculum.json")
+    "curriculum" : os.path.join(SCHEMAS, "curriculum", "curriculum.json"),
+    "ressource" : os.path.join(SCHEMAS, "ressource", "ressource.json")
 }
 
 try:
