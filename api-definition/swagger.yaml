@@ -44,6 +44,9 @@ paths:
               type: "string"
         405:
           description: "Invalid input"
+      security:
+      - basic: []
+      - api_key: []
   /ressources:
     post:
       tags:
@@ -66,6 +69,9 @@ paths:
             $ref: "#/definitions/inline_response_200"
         405:
           description: "Invalid input"
+      security:
+      - basic: []
+      - api_key: []
     delete:
       tags:
       - "ressource"
@@ -77,6 +83,9 @@ paths:
       responses:
         200:
           description: "The ressources have been deleted"
+      security:
+      - basic: []
+      - api_key: []
   /ressources/{ressourceId}:
     get:
       tags:
@@ -100,6 +109,9 @@ paths:
             $ref: "#/definitions/Ressource"
         404:
           description: "No ressource with this id was found"
+      security:
+      - basic: []
+      - api_key: []
     delete:
       tags:
       - "ressource"
@@ -122,18 +134,18 @@ paths:
             $ref: "#/definitions/Ressource"
         404:
           description: "No ressource with this id"
+      security:
+      - basic: []
+      - api_key: []
 securityDefinitions:
-  petstore_auth:
-    type: "oauth2"
-    authorizationUrl: "http://petstore.swagger.io/oauth/dialog"
-    flow: "implicit"
-    scopes:
-      write:pets: "modify pets in your account"
-      read:pets: "read your pets"
   api_key:
+    description: "The server may have security keys for specially trusted applications."
     type: "apiKey"
     name: "api_key"
     in: "header"
+  basic:
+    description: "authenticate agains a pre-set authentication provider"
+    type: "basic"
 definitions:
   Ressource:
     type: "object"
