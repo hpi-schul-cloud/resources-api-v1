@@ -64,8 +64,6 @@ paths:
           description: "The ressource has beed added"
           schema:
             $ref: "#/definitions/inline_response_200"
-        401:
-          description: "Not authorized to modify this UUID."
         405:
           description: "Invalid input"
     delete:
