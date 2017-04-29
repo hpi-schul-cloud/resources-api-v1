@@ -43,6 +43,9 @@ paths:
               type: "string"
         405:
           description: "Invalid input"
+      security:
+      - basic: []
+      - api_key: []
   /ressources:
     post:
       tags:
@@ -63,10 +66,11 @@ paths:
           description: "The ressource has beed added"
           schema:
             $ref: "#/definitions/inline_response_200"
-        401:
-          description: "Not authorized to modify this UUID."
         405:
           description: "Invalid input"
+      security:
+      - basic: []
+      - api_key: []
     delete:
       tags:
       - "ressource"
@@ -78,6 +82,9 @@ paths:
       responses:
         200:
           description: "The ressources have been deleted"
+      security:
+      - basic: []
+      - api_key: []
   /ressources/{ressourceId}:
     get:
       tags:
@@ -101,6 +108,9 @@ paths:
             $ref: "#/definitions/Ressource"
         404:
           description: "No ressource with this id was found"
+      security:
+      - basic: []
+      - api_key: []
     delete:
       tags:
       - "ressource"
@@ -123,91 +133,22 @@ paths:
             $ref: "#/definitions/Ressource"
         404:
           description: "No ressource with this id"
+      security:
+      - basic: []
+      - api_key: []
 securityDefinitions:
-  petstore_auth:
-    type: "oauth2"
-    authorizationUrl: "http://petstore.swagger.io/oauth/dialog"
-    flow: "implicit"
-    scopes:
-      write:pets: "modify pets in your account"
-      read:pets: "read your pets"
   api_key:
+    description: "The server may have security keys for specially trusted applications."
     type: "apiKey"
     name: "api_key"
     in: "header"
+  basic:
+    description: "authenticate agains a pre-set authentication provider"
+    type: "basic"
 definitions:
   Ressource:
     type: "object"
-    required:
-    - "contentCategory"
-    - "languages"
-    - "license"
-    - "mimeType"
-    - "providers"
-    - "title"
-    - "url"
-    properties:
-      title:
-        type: "string"
-        example: "Schul-Cloud"
-        description: "The title of the document."
-      url:
-        $ref: "#/definitions/URL"
-      license:
-        type: "array"
-        items:
-          $ref: "#/definitions/License"
-      mimeType:
-        type: "string"
-        example: "text/html"
-        description: "<https://tools.ietf.org/html/rfc2046>"
-      providers:
-        type: "array"
-        description: "The entity providing this information."
-        items:
-          $ref: "#/definitions/Provider"
-      contentCategory:
-        $ref: "#/definitions/ContentCategory"
-      languages:
-        type: "array"
-        items:
-          $ref: "#/definitions/Language"
-      subjects:
-        type: "array"
-        items:
-          $ref: "#/definitions/Subject"
-      thumbnail:
-        $ref: "#/definitions/URL"
-      size:
-        type: "integer"
-        format: "int64"
-      dimensions:
-        $ref: "#/definitions/Dimensions"
-      duration:
-        type: "number"
-      contextUrl:
-        $ref: "#/definitions/URL"
-  URL:
-    type: "string"
-    example: "http://schul-cloud.org"
-  License:
-    type: "string"
-  Provider:
-    type: "string"
-  ContentCategory:
-    example: "l"
-    enum:
-    - "a"
-    - "l"
-    - "rl"
-    - "t"
-  Language:
-    type: "string"
-    example: "de-de"
-  Subject:
-    type: "string"
-  Dimensions:
-    type: "string"
+    description: "#$ref: \"https://github.com/schul-cloud/ressources-api-v1/raw/master/schemas/ressource/ressource.json\""
   inline_response_200:
     required:
     - "id"
