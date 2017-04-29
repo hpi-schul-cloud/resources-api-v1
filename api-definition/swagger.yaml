@@ -29,7 +29,7 @@ paths:
       tags:
       - "ressource"
       summary: "Get the ids of all ressources of the client"
-      operationId: "getRessources"
+      operationId: "getRessourceIds"
       consumes:
       - "application/json"
       produces:
@@ -52,7 +52,7 @@ paths:
       tags:
       - "ressource"
       summary: "Add new ressources to the database"
-      operationId: "addRessources"
+      operationId: "addRessource"
       consumes:
       - "application/json"
       parameters:
