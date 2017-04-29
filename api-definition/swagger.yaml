@@ -149,7 +149,6 @@ securityDefinitions:
 definitions:
   Ressource:
     type: "object"
-    description: "https://github.com/schul-cloud/ressources-api-v1/raw/master/schemas/ressource/"
   inline_response_200:
     required:
     - "id"
