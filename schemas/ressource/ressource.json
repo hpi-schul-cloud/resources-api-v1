@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://github.com/schul-cloud/ressources-api-v1/raw/master/schemas/ressource.json",
+  "id": "https://github.com/schul-cloud/ressources-api-v1/raw/master/schemas/ressource/ressource.json",
   "title": "Ressource",
   "description": "Please view the description of the schema here: https://github.com/schul-cloud/ressources-api-v1/tree/master/schemas/ressource",
   "$ref": "#/definitions/Ressource",
