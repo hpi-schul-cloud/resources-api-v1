@@ -84,7 +84,7 @@ def main():
     for name, path in schemas.items():
         if choose_schema(name):
             schema = load_json_from_file(path)
-            schema["id"] = "file:///" + os.path.abspath(path).replace("\\", "/")
+            schema["id"] = "file://" + os.path.abspath(path).replace("\\", "/")
             execute_tests(name, schema)
         else:
             print("SKIP", name)
