@@ -4,8 +4,8 @@ import json
 
 
 HERE = os.path.dirname(__file__)
-VALID_SCHEMAS_PATH = os.path.join(HERE, "ressource/examples/valid/")
-INVALID_SCHEMAS_PATH = os.path.join(HERE, "ressource/examples/invalid/")
+VALID_SCHEMAS_PATH = os.path.join(HERE, "json/ressource/examples/valid/")
+INVALID_SCHEMAS_PATH = os.path.join(HERE, "json/ressource/examples/invalid/")
 
 
 class ValidationFailed(jsonschema.exceptions.ValidationError):

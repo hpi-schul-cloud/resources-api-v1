@@ -23,7 +23,13 @@ cat "$config"
 echo
 ./generate_code.sh python "$output" --config "$config"
 
-cp -r "../schemas/"* "$output/schul_cloud_ressources_api_v1/schema"
+src="../schemas"
+dst="./python_client/schul_cloud_ressources_api_v1/schema/json"
+echo "copying all json files from $src to $dst"
+for file in `( cd "$src" && find . -name \*.json )`; do
+  mkdir -p "$dst/`dirname \"$file\"`"
+  cp -vT "$src/$file" "$dst/$file"
+done
 
 (
   cd "$output"
