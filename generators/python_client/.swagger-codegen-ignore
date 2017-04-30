@@ -2,3 +2,4 @@
 /schul_cloud_ressources_api_v1/schema
 .gitignore
 /tox.ini
+/MANIFEST.in

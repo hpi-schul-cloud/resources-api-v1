@@ -1,0 +1,2 @@
+recursive-include schul_cloud_ressources_api_v1/schema/json/ *.json
+
