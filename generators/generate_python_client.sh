@@ -29,6 +29,6 @@ echo
   python3 -m pip install -r requirements.txt \
                          -r test-requirements.txt \
                          wheel
-  tox
+  python3 -m nosetests
   python3 setup.py sdist bdist_wheel
 )
