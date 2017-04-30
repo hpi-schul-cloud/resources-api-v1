@@ -30,8 +30,6 @@ paths:
       - "ressource"
       summary: "Get the ids of all ressources of the client"
       operationId: "getRessourceIds"
-      consumes:
-      - "application/json"
       produces:
       - "application/json"
       parameters: []
@@ -42,8 +40,6 @@ paths:
             type: "array"
             items:
               type: "string"
-        405:
-          description: "Invalid input"
       security:
       - basic: []
       - api_key: []
@@ -54,6 +50,8 @@ paths:
       summary: "Add new ressources to the database"
       operationId: "addRessource"
       consumes:
+      - "application/json"
+      produces:
       - "application/json"
       parameters:
       - in: "body"
@@ -80,8 +78,6 @@ paths:
       - "ressource"
       summary: "Delete all ressources"
       operationId: "deleteRessources"
-      consumes:
-      - "application/json"
       parameters: []
       responses:
         200:
@@ -95,8 +91,6 @@ paths:
       - "ressource"
       summary: "Get a ressource."
       operationId: "getRessource"
-      consumes:
-      - "application/json"
       produces:
       - "application/json"
       parameters:
@@ -120,10 +114,6 @@ paths:
       - "ressource"
       summary: "Delete a resource"
       operationId: "deleteRessource"
-      consumes:
-      - "application/json"
-      produces:
-      - "application/json"
       parameters:
       - name: "ressourceId"
         in: "path"
