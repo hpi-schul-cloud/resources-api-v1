@@ -32,11 +32,12 @@ for file in `( cd "$src" && find . -name \*.json )`; do
 done
 
 (
+  set -e
   cd "$output"
   echo "jsonschema==2.6.0" >> "requirements.txt"
   python3 -m pip install -r requirements.txt \
                          -r test-requirements.txt \
                          wheel
-  python3 -m nosetests
+  tox
   python3 setup.py sdist bdist_wheel
 )
