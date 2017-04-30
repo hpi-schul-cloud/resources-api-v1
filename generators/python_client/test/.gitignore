@@ -1,0 +1,11 @@
+/test_inline_response_200.py
+/__init__.py
+/test_language.py
+/test_ressource_api.py
+/test_url.py
+/test_provider.py
+/test_subject.py
+/test_license.py
+/test_content_category.py
+/test_dimensions.py
+/test_ressource.py

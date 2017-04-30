@@ -4,7 +4,6 @@
 /docs
 /schul_cloud_ressources_server_tests_v1.egg-info
 /setup.py
-/test
 /build
 /schul_cloud_ressources_api_v1.egg-info
 /requirements.txt
@@ -13,3 +12,5 @@
 /dist
 /test-requirements.txt
 /tox.ini
+__pycache__
+/.cache
