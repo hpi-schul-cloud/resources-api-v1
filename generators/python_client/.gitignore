@@ -10,7 +10,6 @@
 /schul_cloud_ressources_server_tests_v1
 /dist
 /test-requirements.txt
-/tox.ini
 __pycache__
 /.cache
 /.tox

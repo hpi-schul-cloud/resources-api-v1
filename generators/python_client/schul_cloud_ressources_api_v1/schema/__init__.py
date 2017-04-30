@@ -19,8 +19,9 @@ def is_valid_ressource(ressource):
 
 def get_valid_examples():
     """Return a list of json objects that are valid examples for ressources."""
+    return [""]
 
 
 def get_invalid_examples():
     """Return a list of json objects that are invalid examples for ressources."""
-
+    return [""]
