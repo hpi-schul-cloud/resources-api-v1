@@ -67,6 +67,8 @@ paths:
             $ref: "#/definitions/inline_response_200"
         400:
           description: "Bad Request: The input provided is not valid JSON."
+        415:
+          description: "Unsupported Media Type: The content type must application/json."
         422:
           description: "Unprocessable Entity: The schema of the object provided is\
             \ not a ressource."
