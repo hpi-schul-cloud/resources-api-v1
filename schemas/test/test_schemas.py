@@ -22,24 +22,23 @@ schemas = {
 
 try:
     import jsonschema
-    checker = jsonschema.FormatChecker(("date-time",))
 except:
     print("You may want to install the packages mentioned in requirements.txt.")
     raise
 
 def schema_works(schema, instance):
-    jsonschema.validate(instance, schema, format_checker=checker)
+    jsonschema.validate(instance, schema)
 
 def schema_fails(schema, instance):
     try:
-        jsonschema.validate(instance, schema, format_checker=checker)
+        jsonschema.validate(instance, schema)
         assert False, "Schema worked"
     except jsonschema.exceptions.ValidationError:
         pass
         
 def load_json_from_file(file_name):
     try:
-        with open(os.path.join(file_name)) as f:
+        with open(os.path.join(file_name), encoding="UTF-8") as f:
             return json.load(f)
     except ValueError:
         print(file_name)
@@ -65,7 +64,6 @@ def test_schema(name, schema, message):
                 print("file:", file)
                 print("schema:", schema)
                 print("instance:", instance)
-                print("checkers:", checker.checkers)
                 for call in schema_calls:
                     print(*call)
                 raise
@@ -82,9 +80,13 @@ def new_schema_calls():
 def execute_tests(name, schema):
     test_schema(name, schema, name + " as schema")
 
-for name, path in schemas.items():
-    if choose_schema(name):
-        schema = load_json_from_file(path)
-        execute_tests(name, schema)
-    else:
-        print("SKIP", name)
+def main():
+    for name, path in schemas.items():
+        if choose_schema(name):
+            schema = load_json_from_file(path)
+            schema["id"] = "file:///" + os.path.abspath(path).replace("\\", "/")
+            execute_tests(name, schema)
+        else:
+            print("SKIP", name)
+
+main()
