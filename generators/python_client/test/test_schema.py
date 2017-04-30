@@ -27,6 +27,11 @@ class TestSchema(unittest.TestCase):
     def test_there_are_invalid_examples(self):
         assert get_valid_examples()
 
+    def test_valid_and_invalid_examples_are_not_the_same(self):
+        for v in get_valid_examples():
+            for i in get_valid_examples():
+                assert v != i, "A valid example can not be invalid."
+
 
 if __name__ == '__main__':
     unittest.main()

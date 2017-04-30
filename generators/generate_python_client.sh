@@ -23,6 +23,8 @@ cat "$config"
 echo
 ./generate_code.sh python "$output" --config "$config"
 
+cp -r "../schemas/"* "$output/schul_cloud_ressources_api_v1/schema"
+
 (
   cd "$output"
   echo "jsonschema==2.6.0" >> "requirements.txt"
