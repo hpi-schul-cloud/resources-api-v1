@@ -67,8 +67,11 @@ paths:
           description: "The ressource has beed added"
           schema:
             $ref: "#/definitions/inline_response_200"
-        405:
-          description: "Invalid input"
+        400:
+          description: "Bad Request: The input provided is not valid JSON."
+        422:
+          description: "Unprocessable Entity: The schema of the object provided is\
+            \ not a ressource."
       security:
       - basic: []
       - api_key: []
