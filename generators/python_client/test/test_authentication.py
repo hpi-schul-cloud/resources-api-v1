@@ -47,7 +47,7 @@ class TestAuthentication(unittest.TestCase):
         self.test_no_authentication_has_no_user_name_and_password()
 
     def test_basic_authentication_provides_username_and_password(self):
-        for username, password in [("a", "p"), "1", "2"]:
+        for username, password in [("a", "p"), ("1", "2")]:
             auth.basic(username, password)
             self.assertIsBasic(username, password)
 
@@ -68,7 +68,7 @@ class TestAuthentication(unittest.TestCase):
         self.assertEqual(settings["type"], "api_key")
         self.assertEqual(settings["in"],"header")
         self.assertEqual(settings["key"],"Authorization")
-        self.assertEqual(settings["value"],"api-key key=" + base64.b64encode(key))
+        self.assertEqual(settings["value"],"api-key key=" + base64.b64encode(key.encode()).decode())
 
     def test_none_deletes_api_key(self):
         """Test deletion of api key."""
