@@ -8,6 +8,31 @@ This is the [Ressources API form the architecture][arch]
 
 If you like to work on this on bring in new ideas, you can open an issue and discuss with us.
 
+## Repository Structure
+[repository-structure]: #repository-structure
+
+- [api-definition][api-definition]  
+  Here, you can find the swagger API definition.
+  You can try it out [on swaggerhub][swag1].
+  The api definition is incomplete.
+  It is incomplete and uses the [ressource json schema][ressource-schema].
+- [schemas][schemas]  
+  The [ressource schema][ressource-schema] is defined there.
+  If you want to see what a ressource looks like, you can find examples there.
+  The schema can be used to verify objects if they can be used as a ressource.
+  If you write your own [crawler] (LINK: TODO), this may come in handy.
+  The examples are tested and allow test-driven development of the schema.
+  If you have additional ideas about what a ressource is, you can submit
+  it to there.
+- [generators][generators]  
+  These scripts use the [swagger api definition][api-definition] to generate
+  client and server libraries.
+  Whenever the api changes, a [python library][python-library] is created and pushed to [PyPI][pypi].
+  You can use this library to access and test servers and ressources.
+- [scripts][scripts] and [.travis.yml](.travis.yml)  
+  These scripts are used to run the continuous integration tests of the api to ensure
+  it does not contain some obvious mistakes.
+
 ## Structure
 
 To verify your requests and responses, the is specified as follows:
@@ -232,3 +257,9 @@ It does the following:
 [api-definition]: ./api-definition/
 [pypi]: https://pypi.python.org/pypi/schul-cloud-ressources-api-v1
 [travis]: https://travis-ci.org/schul-cloud/ressources-api-v1
+[api-definition]: api-definition
+[ressource-schema]: schema/resource
+[schemas]: schemas
+[generators]: generators
+[scripts]: scripts
+[python-library]: generators/python_client/
