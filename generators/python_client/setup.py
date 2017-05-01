@@ -36,7 +36,5 @@ setup(
     install_requires=REQUIRES,
     packages=find_packages(),
     include_package_data=True,
-    long_description="""\
-    This is the specification for the content of Schul-Cloud. You can find more information in the repository &lt;https://github.com/schul-cloud/ressources-api-v1&gt;. 
-    """
+    long_description=open(os.path.join(HERE, "README.rst")).read()
 )
