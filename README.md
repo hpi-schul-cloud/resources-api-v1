@@ -33,21 +33,6 @@ If you like to work on this on bring in new ideas, you can open an issue and dis
   These scripts are used to run the continuous integration tests of the api to ensure
   it does not contain some obvious mistakes.
 
-## Structure
-
-To verify your requests and responses, the is specified as follows:
-- This README contains a complete description of
-  - [Objects][objects]
-    - with all attributes
-    - their description
-    - examples
-    - points unclear that need to be specified, marked with a **TODO**
-    - their dependencies on other attributes
-  - [endpoints][endpoints]
-    - described like objects
-- The `schema` folder contains the JSON-Schema to verify the different formats
-- The `docker` folder contains a test-endpoint which can be used to test you application against.
-
 ## Objects
 [objects]: #objects
 
