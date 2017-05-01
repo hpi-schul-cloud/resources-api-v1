@@ -1,7 +1,8 @@
 ---
 swagger: "2.0"
 info:
-  description: "This is the specification for the content of Schul-Cloud.\nYou can find more information in the repository <https://github.com/schul-cloud/ressources-api-v1>.\n"
+  description: "This is the specification fo rthe content of Schul-Cloud.\nYou can\
+    \ find more information in the [repository](https://github.com/schul-cloud/ressources-api-v1).\n"
   version: "1.0.0"
   title: "Schul-Cloud Content API"
   termsOfService: "http://swagger.io/terms/"
@@ -148,9 +149,11 @@ paths:
       - api_key: []
 securityDefinitions:
   api_key:
-    description: "The server may have security keys for specially trusted applications."
+    description: "The server may have security keys for specially trusted applications.\n\
+      The Authorization header field includes the identifier 'api-key' and\nthe base64\
+      \ encoded api key.\n"
     type: "apiKey"
-    name: "api_key"
+    name: "Authorization"
     in: "header"
   basic:
     description: "authenticate agains a pre-set authentication provider"
