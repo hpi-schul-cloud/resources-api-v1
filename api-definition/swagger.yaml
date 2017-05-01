@@ -1,8 +1,7 @@
 ---
 swagger: "2.0"
 info:
-  description: "This is the specification fo rthe content of Schul-Cloud.\nYou can\
-    \ find more information in the [repository](https://github.com/schul-cloud/ressources-api-v1).\n"
+  description: "This is the specification for the content of Schul-Cloud.\nYou can find more information in the repository <https://github.com/schul-cloud/ressources-api-v1>.\n"
   version: "1.0.0"
   title: "Schul-Cloud Content API"
   termsOfService: "http://swagger.io/terms/"

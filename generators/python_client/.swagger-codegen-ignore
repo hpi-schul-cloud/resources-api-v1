@@ -1,0 +1,7 @@
+/test/test_schema.py
+/schul_cloud_ressources_api_v1/schema
+.gitignore
+/tox.ini
+/MANIFEST.in
+/setup.py
+/README.rst

@@ -1,0 +1,95 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://github.com/schul-cloud/ressources-api-v1/raw/master/schemas/ressource/ressource.json",
+  "title": "Ressource",
+  "description": "Please view the description of the schema here: https://github.com/schul-cloud/ressources-api-v1/tree/master/schemas/ressource",
+  "$ref": "#/definitions/Ressource",
+  "definitions": {
+    "Ressource":{
+      "type":"object",
+      "required": [
+        "title",
+        "url",
+        "licenses",
+        "mimeType",
+        "contentCategory",
+        "languages"
+      ],
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "The title of the ressource.",
+          "example": "Schul-Cloud"
+        },
+        "url": {
+          "$ref": "#/definitions/URL"
+        },
+        "licenses": {
+          "type": "array",
+          "items": {
+            "$ref":"../license/license.json"
+          }
+        },
+        "mimeType": {
+          "type": "string",
+          "description": "https://tools.ietf.org/html/rfc2046",
+          "example":"text/html"
+        },
+        "contentCategory": {
+          "$ref": "#/definitions/ContentCategory"
+        },
+        "languages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Language"
+          },
+          "description": "As described in IEEE LOM, Section 1.3 http://129.115.100.158/txlor/docs/IEEE_LOM_1484_12_1_v1_Final_Draft.pdf"
+        },
+        "curricula": {
+          "type": "array",
+          "items": {
+            "$ref": "../curriculum/curriculum.json"
+          }
+        },
+        "thumbnail": {
+          "$ref": "#/definitions/URL"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "dimensions": {
+          "$ref": "#/definitions/Dimensions"
+        },
+        "duration": {
+          "type":"number"
+        }, "contextUrl": {
+          "$ref":"#/definitions/URL"
+        }
+      }
+    },
+    "URL":{
+      "type": "string",
+      "pattern": "^https?://.+$",
+      "example": "http://schul-cloud.org"
+    },
+    "ContentCategory":{
+      "enum": ["a", "l", "rl", "t"],
+      "example":"l"
+    },
+    "Language": {
+      "type":"string",
+      "pattern": "^[a-z]+(-[a-z]+)?$",
+      "example":"de-de"
+    },
+    "Subject": {
+      "type":"string"
+    },
+    "Dimensions": {
+      "type":"string",
+      "pattern": "^[0-9]+pxX[0-9]+px$",
+      "example": "640pxX480px"
+    }
+  }
+}
+
