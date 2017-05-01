@@ -24,7 +24,7 @@ VERSION = "1.0.0"
 
 HERE = os.path.dirname(__file__) or "."
 
-REQUIRES = [line.strip() for line in open(os.path.join(HERE, "requirements.txt").readlines()) if line.strip()]
+REQUIRES = [line.strip() for line in open(os.path.join(HERE, "requirements.txt")).readlines() if line.strip()]
 
 setup(
     name=NAME,
