@@ -57,6 +57,43 @@ Here, you can see how to access the api:
     # delete the ressource
     api.delete_ressource(response.id)
 
+Authentication
+~~~~~~~~~~~~~~
+
+There are these options for authentication:
+
+- no authentication: this is the default and nothing needs to be done.
+- basic authentication: authentication with user name and password
+- api_key authentication: a key is supplied to authorize the requests.
+
+The authentication is a global state.
+All ``ApiClients`` use this global state.
+Thus, you can only authenticate at one API at a time.
+
+.. code:: Python
+
+    import schul_cloud_ressources_api_v1.auth as auth
+
+You can remove all authentication. This is the default case.
+
+.. code:: Python
+
+    auth.none()
+
+You can authenticate with username and password. This is `Basic Authentication
+<https://en.wikipedia.org/wiki/Basic_access_authentication>`.
+
+.. code:: Python
+
+    auth.basic("username", "password")
+
+You can authenticate with an api key.
+
+.. code:: Python
+
+    auth.api_key("your-api-key")
+
+
 Verifying Ressources
 ~~~~~~~~~~~~~~~~~~~~
 

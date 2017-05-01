@@ -33,18 +33,47 @@ If you like to work on this on bring in new ideas, you can open an issue and dis
   it does not contain some obvious mistakes.
 
 ## API
-[endpoints]: #endpoints
+[api]: #api
 
 These are the API endpoints defined in the [documentation][arch].
 
-### Ressources
+## Ressources API
+[ressources]: #ressources
 
 The ressources API is specified in the [api-definition][api-definition].
 You can view it on [swaggerhub][swag1].
 This API is tested and implemented by the [schul_cloud_ressources_server_tests][rstest].
-If you want to imeplement the API, please refer to the tests.
+If you want to implement the API, please refer to the tests.
 
-### Search
+### Authorization
+The API only specifies how to authenticate.
+Depending on the implementation, it differs where you get the authentication from.
+
+A recommendation is that if you could not authenticate,
+the server shows a page telling you where to get accepted credentials.
+
+The api specifies authentication via api key and [basic authentication][basic-auth].
+If you want to add another authentication mechanism, please [open an issue][new-issue].
+
+It is clearly defined how to do [basic access authentication][basic-auth].
+Instead of no authentication and basic authentication, 
+the `Authorization` header can be set to support api key authentication.
+
+Example:
+
+    Authorization: api-key key=base64encodedkey
+
+Because the ``Authorization`` header is used, one cannot authenticate with both,
+an api key and basic authentication.
+
+Further Reading:
+
+- http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-auth-using-authorization-header.html
+- http://www.ietf.org/rfc/rfc2617.txt via http://stackoverflow.com/a/11420667/1320237
+- https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
+- https://tools.ietf.org/html/rfc7235#section-4.2
+
+### Search API
 [search]: #search
 
 - `GET /v1/search?q=WORDS?ATTRBUTE=...&ATTRBIUTE2=...&$skip=SKIP?$limit=LIMIT`  
@@ -156,3 +185,5 @@ It does the following:
 [scripts]: scripts
 [python-library]: generators/python_client/
 [rstest]: https://github.com/schul-cloud/schul_cloud_ressources_server_tests
+[new-issue]: https://github.com/schul-cloud/ressources-api-v1/issues/new
+[basic-auth]: https://en.wikipedia.org/wiki/Basic_access_authentication
