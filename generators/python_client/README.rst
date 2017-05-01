@@ -18,6 +18,8 @@ Accessing the API
 
 Suppose, a server runs under http://localhost:8080/v1.
 You can use the api to connect to it.
+If you do not have a server, you can get a test server from the package
+`schul_cloud_ressources_server_tests`_.
 
 .. code:: Python
 
@@ -143,3 +145,4 @@ Further Reading
 
 .. _repository: https://github.com/schul-cloud/ressources-api-v1
 .. _PyPI: https://pypi.python.org/pypi/schul-cloud-ressources-api-v1
+.. _schul_cloud_ressources_server_tests: https://github.com/schul-cloud/schul_cloud_ressources_server_tests
