@@ -3,3 +3,4 @@
 .gitignore
 /tox.ini
 /MANIFEST.in
+/setup.py
