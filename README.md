@@ -14,8 +14,7 @@ If you like to work on this on bring in new ideas, you can open an issue and dis
 - [api-definition][api-definition]  
   Here, you can find the swagger API definition.
   You can try it out [on swaggerhub][swag1].
-  The api definition is incomplete.
-  It is incomplete and uses the [ressource json schema][ressource-schema].
+  The api definition is incomplete and uses the [ressource json schema][ressource-schema].
 - [schemas][schemas]  
   The [ressource schema][ressource-schema] is defined there.
   If you want to see what a ressource looks like, you can find examples there.
@@ -145,7 +144,7 @@ It does the following:
 [content-crawl-api]: https://github.com/schul-cloud/schulcloud-content-crawler#attributes
 [rfc2046]: https://tools.ietf.org/html/rfc2046
 [ieee-lom]: http://129.115.100.158/txlor/docs/IEEE_LOM_1484_12_1_v1_Final_Draft.pdf
-[swag-1]: https://app.swaggerhub.com/apis/niccokunzmann/schul-cloud-content-api/1.0.0
+[swag1]: https://app.swaggerhub.com/apis/niccokunzmann/schul-cloud-content-api/1.0.0
 [schemas]: ./schemas
 [api-definition]: ./api-definition/
 [pypi]: https://pypi.python.org/pypi/schul-cloud-ressources-api-v1
