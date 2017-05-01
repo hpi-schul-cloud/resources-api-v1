@@ -80,7 +80,7 @@ You can test if a ressource is valid or not using `is_valid_ressource`
     invalid_ressource = get_invalid_examples()[0]
     assert not is_valid_ressource(invalid_ressource)
 
-If you would like to find outmore about why the ressource is not valid, you can use `validate_ressource`.
+If you would like to find out more about why the ressource is not valid, you can use `validate_ressource`.
 
 .. code:: Python
 
