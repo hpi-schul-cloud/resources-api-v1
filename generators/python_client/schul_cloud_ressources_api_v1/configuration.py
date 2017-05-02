@@ -213,7 +213,7 @@ class Configuration(object):
                         'value': self.get_api_key_with_prefix('Authorization')
                     }
                 }
-        if self.username:
+        if self.username is not None:
             return {
                 'basic':
                     {

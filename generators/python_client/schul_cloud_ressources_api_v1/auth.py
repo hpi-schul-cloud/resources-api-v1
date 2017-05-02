@@ -18,8 +18,8 @@ def none():
 
     This is the default case.
     """
-    _config.username = ""
-    _config.password = ""
+    _config.username = None
+    _config.password = None
     _config.api_key_prefix = {}
     _config.api_key = {}
 
@@ -37,5 +37,6 @@ def api_key(api_key):
     _config.api_key_prefix["Authorization"] = "api-key"
     _config.api_key["Authorization"] = "key=" + b64encode(api_key.encode()).decode()
 
+none()
 
 __all__ = ["none", "basic", "api_key"]

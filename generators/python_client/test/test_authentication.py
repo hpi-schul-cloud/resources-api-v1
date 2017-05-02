@@ -31,8 +31,8 @@ class TestAuthentication(unittest.TestCase):
 
     def test_no_authentication_has_no_user_name_and_password(self):
         """By default there is no username and poassword supplied."""
-        self.assertEqual(self.config.username, "")
-        self.assertEqual(self.config.password, "")
+        self.assertFalse(self.config.username)
+        self.assertFalse(self.config.password)
 
     def test_no_authentication_has_no_api_key(self):
         """"By default, the api key is not present."""
