@@ -7,3 +7,4 @@
 /README.rst
 /test/test_authentication.py
 /schul_cloud_ressources_api_v1/auth.py
+/schul_cloud_ressources_api_v1/configuration.py

@@ -36,7 +36,6 @@ def api_key(api_key):
     none()
     _config.api_key_prefix["Authorization"] = "api-key"
     _config.api_key["Authorization"] = "key=" + b64encode(api_key.encode()).decode()
-    
 
 
 __all__ = ["none", "basic", "api_key"]
