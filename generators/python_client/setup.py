@@ -17,7 +17,7 @@ NAME = "schul_cloud_ressources_api_v1"
 VERSION = "1.0.0"
 if os.environ.get("TRAVIS_BUILD_NUMBER"):
     # same as in ../generate_python_client.sh
-    VERSION += "_" + os.environ.get("TRAVIS_BUILD_NUMBER")
+    VERSION += "." + os.environ.get("TRAVIS_BUILD_NUMBER")
 # To install the library, run the following
 #
 # python setup.py install

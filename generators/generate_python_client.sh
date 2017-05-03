@@ -7,7 +7,7 @@ version_ending=""
 config="python_client_config.json"
 if [ -n "$TRAVIS_BUILD_NUMBER" ]; then
   # see https://docs.travis-ci.com/user/environment-variables/
-  version_ending="_${TRAVIS_BUILD_NUMBER}"
+  version_ending=".${TRAVIS_BUILD_NUMBER}"
 fi
 
 
