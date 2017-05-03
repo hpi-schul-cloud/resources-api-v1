@@ -1,5 +1,6 @@
 # ressources-api-v1
 
+[![CCCC draft](https://img.shields.io/badge/CCCC-draft-yellow.svg)][cccc]
 [![Build Status](https://travis-ci.org/schul-cloud/ressources-api-v1.svg?branch=master)][travis]
 [![PyPI](https://img.shields.io/pypi/v/schul-cloud-ressources-api-v1.svg)][pypi]
 
@@ -8,7 +9,7 @@ This is the [Ressources API form the architecture][arch].
 
 If you like to work on this on bring in new ideas, you can open an issue and discuss with us.
 
-The design process follows the [Collective Code Construction Contract](https://rfc.zeromq.org/spec:42/C4/).
+The design process follows the [Collective Code Construction Contract][cccc].
 
 ## Repository Structure
 [repository-structure]: #repository-structure
@@ -189,3 +190,4 @@ It does the following:
 [rstest]: https://github.com/schul-cloud/schul_cloud_ressources_server_tests
 [new-issue]: https://github.com/schul-cloud/ressources-api-v1/issues/new
 [basic-auth]: https://en.wikipedia.org/wiki/Basic_access_authentication
+[cccc]: https://rfc.zeromq.org/spec:42/C4/
