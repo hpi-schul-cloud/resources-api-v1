@@ -4,9 +4,11 @@
 [![PyPI](https://img.shields.io/pypi/v/schul-cloud-ressources-api-v1.svg)][pypi]
 
 The API specification to add content to the Schul-Cloud.
-This is the [Ressources API form the architecture][arch]
+This is the [Ressources API form the architecture][arch].
 
 If you like to work on this on bring in new ideas, you can open an issue and discuss with us.
+
+The design process follows the [Collective Code Construction Contract](https://rfc.zeromq.org/spec:42/C4/).
 
 ## Repository Structure
 [repository-structure]: #repository-structure
