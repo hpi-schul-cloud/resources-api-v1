@@ -182,7 +182,7 @@ It does the following:
 [pypi]: https://pypi.python.org/pypi/schul-cloud-ressources-api-v1
 [travis]: https://travis-ci.org/schul-cloud/ressources-api-v1
 [api-definition]: api-definition
-[ressource-schema]: schema/resource
+[ressource-schema]: schema/ressource
 [schemas]: schemas
 [generators]: generators
 [scripts]: scripts
