@@ -234,7 +234,7 @@ definitions:
         description: "The name of the server."
       source:
         type: "string"
-        example: "https://github.com/schul-cloud/schul_cloud_ressources_server_tests"
+        example: "https://github.com/schul-cloud/schul_cloud_resources_server_tests"
         description: "The implementation of ther server, i.e. the repository."
       description:
         type: "string"
