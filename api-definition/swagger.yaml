@@ -248,6 +248,14 @@ definitions:
     description: "The posted object http://jsonapi.org/format/#crud-creating-responses"
   ResourcePost:
     type: "object"
+    properties:
+      data:
+        $ref: "#/definitions/ResourcePost_data"
+  ResourceType:
+    type: "string"
+    description: "The type of the resource."
+    enum:
+    - "resource"
   Resource:
     type: "object"
     description: "$ref: \"https://github.com/schul-cloud/resources-api-v1/raw/master/schemas/resource/resource.json\""
@@ -324,6 +332,15 @@ definitions:
         description: "The type of the object"
         enum:
         - "resource"
+      attributes:
+        $ref: "#/definitions/Resource"
+  ResourcePost_data:
+    required:
+    - "attributes"
+    - "type"
+    properties:
+      type:
+        $ref: "#/definitions/ResourceType"
       attributes:
         $ref: "#/definitions/Resource"
   ResourceIdsResponse_links:
