@@ -94,6 +94,11 @@ paths:
             \ sent credentials."
           schema:
             $ref: "#/definitions/ErrorResponse"
+        403:
+          description: "A server MUST return 403 Forbidden in response to an unsupported\
+            \ request to create a resource with a client-generated ID."
+          schema:
+            $ref: "#/definitions/ErrorResponse"
         406:
           description: "Servers MUST respond with a 406 Not Acceptable status code\
             \ if a request’s Accept header contains the JSON API media type and all\
