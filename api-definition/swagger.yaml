@@ -119,25 +119,15 @@ paths:
       - "resource"
       summary: "Delete all resources"
       operationId: "deleteResources"
+      produces:
+      - "application/vnd.api+json"
       parameters: []
       responses:
-        200:
-          description: "The resources have been deleted"
+        204:
+          description: "No Content: The resources have been deleted"
         401:
           description: "Unauthorized: The client could not be authorized using the\
             \ sent credentials."
-          schema:
-            $ref: "#/definitions/ErrorResponse"
-        406:
-          description: "Servers MUST respond with a 406 Not Acceptable status code\
-            \ if a request’s Accept header contains the JSON API media type and all\
-            \ instances of that media type are modified with media type parameters."
-          schema:
-            $ref: "#/definitions/ErrorResponse"
-        415:
-          description: "Servers MUST respond with a 415 Unsupported Media Type status\
-            \ code if a request specifies the header Content-Type: application/vnd.api+json\
-            \ with any media type parameters."
           schema:
             $ref: "#/definitions/ErrorResponse"
       security:
@@ -151,46 +141,6 @@ paths:
       operationId: "getResource"
       produces:
       - "application/vnd.api+json"
-      parameters:
-      - name: "resourceId"
-        in: "path"
-        description: "ID of resource that needs to be fetched"
-        required: true
-        type: "string"
-      responses:
-        200:
-          description: "Resources are listed."
-          schema:
-            $ref: "#/definitions/Resource"
-        401:
-          description: "Unauthorized: The client could not be authorized using the\
-            \ sent credentials."
-          schema:
-            $ref: "#/definitions/ErrorResponse"
-        404:
-          description: "No resource with this id was found"
-          schema:
-            $ref: "#/definitions/ErrorResponse"
-        406:
-          description: "Servers MUST respond with a 406 Not Acceptable status code\
-            \ if a request’s Accept header contains the JSON API media type and all\
-            \ instances of that media type are modified with media type parameters."
-          schema:
-            $ref: "#/definitions/ErrorResponse"
-        415:
-          description: "Servers MUST respond with a 415 Unsupported Media Type status\
-            \ code if a request specifies the header Content-Type: application/vnd.api+json\
-            \ with any media type parameters."
-          schema:
-            $ref: "#/definitions/ErrorResponse"
-      security:
-      - basic: []
-      - api_key: []
-    delete:
-      tags:
-      - "resource"
-      summary: "Delete a resource"
-      operationId: "deleteResource"
       parameters:
       - name: "resourceId"
         in: "path"
@@ -226,6 +176,34 @@ paths:
       security:
       - basic: []
       - api_key: []
+    delete:
+      tags:
+      - "resource"
+      summary: "Delete a resource"
+      operationId: "deleteResource"
+      produces:
+      - "application/vnd.api+json"
+      parameters:
+      - name: "resourceId"
+        in: "path"
+        description: "ID of resource that needs to be fetched"
+        required: true
+        type: "string"
+      responses:
+        204:
+          description: "No Content: Resources are listed."
+        401:
+          description: "Unauthorized: The client could not be authorized using the\
+            \ sent credentials."
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+        404:
+          description: "No resource with this id was found"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+      security:
+      - basic: []
+      - api_key: []
 securityDefinitions:
   api_key:
     description: "The server may have security keys for specially trusted applications.\n\
@@ -238,9 +216,33 @@ securityDefinitions:
     description: "authenticate agains a pre-set authentication provider"
     type: "basic"
 definitions:
+  Jsonapi:
+    type: "object"
+    required:
+    - "description"
+    - "name"
+    - "source"
+    properties:
+      name:
+        type: "string"
+        example: "test server"
+        description: "The name of the server."
+      source:
+        type: "string"
+        example: "https://github.com/schul-cloud/schul_cloud_ressources_server_tests"
+        description: "The implementation of ther server, i.e. the repository."
+      description:
+        type: "string"
+        example: "This is a test server to use for continuous integration."
+        description: "A description of the server."
+    description: "an object describing the server’s implementation"
   ResourceResponse:
     type: "object"
+    required:
+    - "jsonapi"
     properties:
+      jsonapi:
+        $ref: "#/definitions/Jsonapi"
       links:
         $ref: "#/definitions/ResourceResponse_links"
       data:
@@ -272,7 +274,10 @@ definitions:
     type: "object"
     required:
     - "data"
+    - "jsonapi"
     properties:
+      jsonapi:
+        $ref: "#/definitions/Jsonapi"
       links:
         $ref: "#/definitions/ResourceIdsResponse_links"
       data:
@@ -283,7 +288,10 @@ definitions:
     type: "object"
     required:
     - "errors"
+    - "jsonapi"
     properties:
+      jsonapi:
+        $ref: "#/definitions/Jsonapi"
       errors:
         type: "array"
         items:
