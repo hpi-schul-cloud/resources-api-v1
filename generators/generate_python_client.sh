@@ -14,9 +14,9 @@ fi
 # config values from
 #   java -jar generators/swagger-codegen-cli-2.2.2.jar config-help -l python
 echo "{
-        \"packageName\": \"schul_cloud_ressources_api_v1\",
+        \"packageName\": \"schul_cloud_resources_api_v1\",
         \"packageVersion\" : \"1.0.0$version_ending\",
-        \"packageUrl\" : \"https://github.com/schul-cloud/ressources-api-v1\"
+        \"packageUrl\" : \"https://github.com/schul-cloud/resources-api-v1\"
       }" > "$config"
 echo "Configutation:"
 cat "$config"
@@ -24,7 +24,7 @@ echo
 ./generate_code.sh python "$output" --config "$config"
 
 src="../schemas"
-dst="./python_client/schul_cloud_ressources_api_v1/schema/json"
+dst="./python_client/schul_cloud_resources_api_v1/schema/json"
 echo "copying all json files from $src to $dst"
 for file in `( cd "$src" && find . -name \*.json )`; do
   mkdir -p "$dst/`dirname \"$file\"`"

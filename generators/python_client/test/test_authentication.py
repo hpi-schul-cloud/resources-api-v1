@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-Tests for schul_cloud_ressources_api_v1.auth
+Tests for schul_cloud_resources_api_v1.auth
 """
 
 
@@ -13,8 +13,8 @@ import unittest
 import base64
 
 
-import schul_cloud_ressources_api_v1.auth as auth
-from schul_cloud_ressources_api_v1.configuration import Configuration
+import schul_cloud_resources_api_v1.auth as auth
+from schul_cloud_resources_api_v1.configuration import Configuration
 
 
 class TestAuthentication(unittest.TestCase):

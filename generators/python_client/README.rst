@@ -1,7 +1,7 @@
-schul_cloud_ressources_api_v1
-=============================
+schul_cloud_resources_api_v1
+============================
 
-The ressources API package allows easy access to the Schul-Cloud ressources servers.
+The resources API package allows easy access to the Schul-Cloud resources servers.
 To get an overview about how the api is defined, please refer to the repository_.
 
 Installation
@@ -11,7 +11,7 @@ You can install the package with pip from PyPI_
 
 .. code:: shell
 
-    pip install schul_cloud_ressources_api_v1
+    pip install schul_cloud_resources_api_v1
 
 Accessing the API
 -----------------
@@ -19,43 +19,43 @@ Accessing the API
 Suppose, a server runs under http://localhost:8080/v1.
 You can use the api to connect to it.
 If you do not have a server, you can get a test server from the package
-`schul_cloud_ressources_server_tests`_.
+`schul_cloud_resources_server_tests`_.
 
 .. code:: Python
 
     # import the api classes for access
-    from schul_cloud_ressources_api_v1 import ApiClient, RessourceApi
+    from schul_cloud_resources_api_v1 import ApiClient, ResourceApi
 
     # create the client objects
     url = "http://localhost:8080/v1"
     client = ApiClient(url)
-    api = RessourceApi(client)
+    api = ResourceApi(client)
 
 The `api` object gives access to the server.
 Here, you can see how to access the api:
 
 .. code:: Python
 
-    # import the ressource examples
-    from schul_cloud_ressources_api_v1.schema import get_valid_examples
+    # import the resource examples
+    from schul_cloud_resources_api_v1.schema import get_valid_examples
 
-    # get a valid ressource
-    ressource = get_valid_examples()[0]
-    print(ressource)
+    # get a valid resource
+    resource = get_valid_examples()[0]
+    print(resource)
     
-    # add the ressource to the server
-    response = api.add_ressource(ressource)
+    # add the resource to the server
+    response = api.add_resource(resource)
 
-    # verify the ressource is on the server
-    all_my_resssources_on_the_server = api.get_ressource_ids()
+    # verify the resource is on the server
+    all_my_resssources_on_the_server = api.get_resource_ids()
     assert response.id in all_my_resssources_on_the_server
 
-    # get the ressource from the server
-    ressource_copy = api.get_ressource(response.id)
-    assert ressource_copy == ressource
+    # get the resource from the server
+    resource_copy = api.get_resource(response.id)
+    assert resource_copy == resource
 
-    # delete the ressource
-    api.delete_ressource(response.id)
+    # delete the resource
+    api.delete_resource(response.id)
 
 Authentication
 ~~~~~~~~~~~~~~
@@ -72,7 +72,7 @@ Thus, you can only authenticate at one API at a time.
 
 .. code:: Python
 
-    import schul_cloud_ressources_api_v1.auth as auth
+    import schul_cloud_resources_api_v1.auth as auth
 
 You can remove all authentication. This is the default case.
 
@@ -94,34 +94,34 @@ You can authenticate with an api key.
     auth.api_key("your-api-key")
 
 
-Verifying Ressources
-~~~~~~~~~~~~~~~~~~~~
+Verifying Resources
+~~~~~~~~~~~~~~~~~~~
 
-When you use ressources, you may want to verify if they have the correct format.
-The format is specified in the `ressource-schema <https://github.com/schul-cloud/ressources-api-v1/tree/master/schemas/ressource>`_.
+When you use resources, you may want to verify if they have the correct format.
+The format is specified in the `resource-schema <https://github.com/schul-cloud/resources-api-v1/tree/master/schemas/resource>`_.
 This schema is included in the api.
 
 .. code:: Python
 
-    from schul_cloud_ressources_api_v1.schema import (
-        get_valid_examples, get_invalid_examples, validate_ressource, is_valid_ressource
+    from schul_cloud_resources_api_v1.schema import (
+        get_valid_examples, get_invalid_examples, validate_resource, is_valid_resource
     )
 
-You can test if a ressource is valid or not using `is_valid_ressource`
+You can test if a resource is valid or not using `is_valid_resource`
 
 .. code:: Python
 
-    valid_ressource = get_valid_examples()[0]
-    assert is_valid_ressource(valid_ressource)
+    valid_resource = get_valid_examples()[0]
+    assert is_valid_resource(valid_resource)
 
-    invalid_ressource = get_invalid_examples()[0]
-    assert not is_valid_ressource(invalid_ressource)
+    invalid_resource = get_invalid_examples()[0]
+    assert not is_valid_resource(invalid_resource)
 
-If you would like to find out more about why the ressource is not valid, you can use `validate_ressource`.
+If you would like to find out more about why the resource is not valid, you can use `validate_resource`.
 
 .. code:: Python
 
-    validate_ressource({'title': 'hello'})
+    validate_resource({'title': 'hello'})
 
 Which results in an error that the `url` property is not present but is required.
 
@@ -148,7 +148,7 @@ Which results in an error that the `url` property is not present but is required
                                      'type': 'string'},
                         'size': {'format': 'int64', 'type': 'integer'},
                         'thumbnail': {'$ref': '#/definitions/URL'},
-                        'title': {'description': 'The title of the ressource.',
+                        'title': {'description': 'The title of the resource.',
                                   'example': 'Schul-Cloud',
                                   'type': 'string'},
                         'url': {'$ref': '#/definitions/URL'}},
@@ -166,12 +166,12 @@ Which results in an error that the `url` property is not present but is required
 Related Packages
 ----------------
 
-The `Server Tests <https://github.com/schul-cloud/schul_cloud_ressources_server_tests>`_ use this library to test servers implementing the API defined in the repository_.
+The `Server Tests <https://github.com/schul-cloud/schul_cloud_resources_server_tests>`_ use this library to test servers implementing the API defined in the repository_.
 
 Further Reading
 ---------------
 
-- To edit this description, you can edit the `file on Github <https://github.com/schul-cloud/ressources-api-v1/tree/master/generators/python_client/README.rst>`__.
+- To edit this description, you can edit the `file on Github <https://github.com/schul-cloud/resources-api-v1/tree/master/generators/python_client/README.rst>`__.
   You can use `this editor <http://rst.ninjs.org/>`__.
 
 
@@ -180,6 +180,6 @@ Further Reading
 
 
 
-.. _repository: https://github.com/schul-cloud/ressources-api-v1
-.. _PyPI: https://pypi.python.org/pypi/schul-cloud-ressources-api-v1
-.. _schul_cloud_ressources_server_tests: https://github.com/schul-cloud/schul_cloud_ressources_server_tests
+.. _repository: https://github.com/schul-cloud/resources-api-v1
+.. _PyPI: https://pypi.python.org/pypi/schul-cloud-resources-api-v1
+.. _schul_cloud_resources_server_tests: https://github.com/schul-cloud/schul_cloud_resources_server_tests

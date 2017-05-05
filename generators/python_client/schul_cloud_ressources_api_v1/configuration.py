@@ -3,7 +3,7 @@
 """
     Schul-Cloud Content API
 
-    This is the specification fo rthe content of Schul-Cloud. You can find more information in the [repository](https://github.com/schul-cloud/ressources-api-v1). 
+    This is the specification fo rthe content of Schul-Cloud. You can find more information in the [repository](https://github.com/schul-cloud/resources-api-v1). 
 
     OpenAPI spec version: 1.0.0
     
@@ -63,7 +63,7 @@ class Configuration(object):
 
         # Logging Settings
         self.logger = {}
-        self.logger["package_logger"] = logging.getLogger("schul_cloud_ressources_api_v1")
+        self.logger["package_logger"] = logging.getLogger("schul_cloud_resources_api_v1")
         self.logger["urllib3_logger"] = logging.getLogger("urllib3")
         # Log format
         self.logger_format = '%(asctime)s %(levelname)s %(message)s'
