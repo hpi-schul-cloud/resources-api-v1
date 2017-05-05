@@ -301,6 +301,7 @@ definitions:
         type: "array"
         items:
           $ref: "#/definitions/ErrorElement"
+        minItems: 1
   ErrorElement:
     type: "object"
     required:
