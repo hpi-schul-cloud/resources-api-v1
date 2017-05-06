@@ -2,7 +2,7 @@
 
 This folder contains all the JSON schemas used by the API.
 
-- the [ressource schema](ressource) to validate ressources
+- the [resource schema](resource) to validate resources
 - the [license schema](license) to standardize a way of licensing
 - the [curriculum schema](curriculum) to validate if content matches with a standardized teaching curriculum
 

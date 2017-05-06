@@ -23,7 +23,7 @@ def none():
     _config.api_key_prefix = {}
     _config.api_key = {}
 
-    
+
 def basic(username, password):
     """Add basic authentication to the requests of the clients."""
     none()

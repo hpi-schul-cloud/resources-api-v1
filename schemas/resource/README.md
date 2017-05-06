@@ -1,4 +1,4 @@
-# Ressource
+# Resource
 
 The object specification is based on talks with
 - Arne Oberlander
@@ -9,16 +9,16 @@ The object specification is based on talks with
 
 ## Schema
 
-The schema is defined in the [ressource.json](ressource.json) file.
+The schema is defined in the [resource.json](resource.json) file.
 The schema is generated from [the specification][spec].
 
 ## Specification
 [spec]: #specification
 
-This Ressource Specification is the binding discussion place.
+This Resource Specification is the binding discussion place.
 All code and schemas are derived from this document.
 
-A ressource is a JSON object with the following attributes:
+A resource is a JSON object with the following attributes:
 
 - **title** (required)  
   The title of the document.
@@ -37,8 +37,8 @@ A ressource is a JSON object with the following attributes:
   - `community` - we know who created this information
   - `external` - someone on the web gave us this information (no authentication)
   The idea:
-  - The search always displays schul-cloud and community ressources
-  - external ressources are not displayed to kids, teachers can choose
+  - The search always displays schul-cloud and community resources
+  - external resources are not displayed to kids, teachers can choose
   **TODO**: discuss
 - **mimeType** (required)  
   The mime type as defined in [RFC2046][rfc2046]
@@ -105,13 +105,13 @@ The Content Category is related to the [curriculum][curriculum].
 [swag-1]: https://app.swaggerhub.com/apis/niccokunzmann/schul-cloud-content-api/1.0.0
 [schemas]: ./schemas
 [api-definition]: ./api-definition/
-[pypi]: https://pypi.python.org/pypi/schul-cloud-ressources-api-v1
-[travis]: https://travis-ci.org/schul-cloud/ressources-api-v1
+[pypi]: https://pypi.python.org/pypi/schul-cloud-resources-api-v1
+[travis]: https://travis-ci.org/schul-cloud/resources-api-v1
 [api-definition]: api-definition
-[ressource-schema]: schema/resource
+[resource-schema]: schema/resource
 [schemas]: schemas
 [generators]: generators
 [scripts]: scripts
 [python-library]: generators/python_client/
-[cc-blog]: https://schul-cloud.github.io/blog/2017-04-26/api-ressources-specification#content-categories
+[cc-blog]: https://schul-cloud.github.io/blog/2017-04-26/api-resources-specification#content-categories
 [curriculum]: ../curriculum#readme

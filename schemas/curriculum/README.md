@@ -28,4 +28,4 @@ If a content can be categorized as "rl" (`contentCategory`, [source][api]), it m
 The elements form above can be elements of the curriculum list.
 
 [schema]: curriculum.json
-[api]: https://github.com/schul-cloud/ressources-api-v1#objects
+[api]: https://github.com/schul-cloud/resources-api-v1#objects

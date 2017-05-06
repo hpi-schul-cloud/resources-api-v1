@@ -1,11 +1,11 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://github.com/schul-cloud/ressources-api-v1/raw/master/schemas/ressource/ressource.json",
-  "title": "Ressource",
-  "description": "Please view the description of the schema here: https://github.com/schul-cloud/ressources-api-v1/tree/master/schemas/ressource",
-  "$ref": "#/definitions/Ressource",
+  "id": "https://github.com/schul-cloud/resources-api-v1/raw/master/schemas/resource/resource.json",
+  "title": "Resource",
+  "description": "Please view the description of the schema here: https://github.com/schul-cloud/resources-api-v1/tree/master/schemas/resource",
+  "$ref": "#/definitions/Resource",
   "definitions": {
-    "Ressource":{
+    "Resource":{
       "type":"object",
       "required": [
         "title",
@@ -18,7 +18,7 @@
       "properties": {
         "title": {
           "type": "string",
-          "description": "The title of the ressource.",
+          "description": "The title of the resource.",
           "example": "Schul-Cloud"
         },
         "url": {

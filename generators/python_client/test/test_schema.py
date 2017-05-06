@@ -12,9 +12,9 @@ import os
 import sys
 import unittest
 
-import schul_cloud_ressources_api_v1
-from schul_cloud_ressources_api_v1.schema import (
-    validate_ressource, is_valid_ressource, get_valid_examples,
+import schul_cloud_resources_api_v1
+from schul_cloud_resources_api_v1.schema import (
+    validate_resource, is_valid_resource, get_valid_examples,
     get_invalid_examples, ValidationFailed
 )
 
@@ -35,13 +35,13 @@ class TestSchema(unittest.TestCase):
 
     def test_all_valid_examples_succeed(self):
         for v in get_valid_examples():
-            self.assertTrue(is_valid_ressource(v))
-            validate_ressource(v)
+            self.assertTrue(is_valid_resource(v))
+            validate_resource(v)
 
     def test_all_invalid_examples_fail(self):
         for i in get_invalid_examples():
-            self.assertFalse(is_valid_ressource(i))
-            self.assertRaises(ValidationFailed, lambda: validate_ressource(i))
+            self.assertFalse(is_valid_resource(i))
+            self.assertRaises(ValidationFailed, lambda: validate_resource(i))
 
 
 if __name__ == '__main__':
