@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://github.com/schul-cloud/resources-api-v1/raw/master/schemas/curriculum/curriculum.json",
+  "title": "Curriculum",
+  "description": "Please view the description of the schema here: https://github.com/schul-cloud/resources-api-v1/tree/master/schemas/curriculum",
+  "type": "string",
+  "enum" : [
+    "KMK :: Thüringen :: Deutsch :: 1978",
+    "KMK :: Thüringen :: Deutsch :: 1979"
+  ]
+}

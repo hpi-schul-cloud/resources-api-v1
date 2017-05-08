@@ -1,106 +1,85 @@
 # ressources-api-v1
 
+[![CCCC draft](https://img.shields.io/badge/CCCC-draft-yellow.svg)][cccc]
+[![Build Status](https://travis-ci.org/schul-cloud/ressources-api-v1.svg?branch=master)][travis]
+[![PyPI](https://img.shields.io/pypi/v/schul-cloud-ressources-api-v1.svg)][pypi]
+
 The API specification to add content to the Schul-Cloud.
-This is the [Ressources API form the architecture][arch]
+This is the [Ressources API from the architecture][arch].
 
 If you like to work on this on bring in new ideas, you can open an issue and discuss with us.
 
-## Structure
+The design process follows the [Collective Code Construction Contract][cccc].
 
-To verify your requests and responses, the is specified as follows:
-- This README contains a complete description of
-  - Objects 
-    - with all attributes
-    - their description
-    - examples
-    - points unclear that need to be specified, marked with a **TODO**
-    - their dependencies on other attributes
-  - [endpoints][endpoints]
-    - described like objects
-- The `schema` folder contains the JSON-Schema to verify the different formats
-- The `docker` folder contains a test-endpoint which can be used to test you application against.
+## Repository Structure
+[repository-structure]: #repository-structure
 
-## Objects
+- [api-definition][api-definition]  
+  Here, you can find the swagger API definition.
+  You can try it out [on swaggerhub][swag1].
+  The api definition is incomplete and uses the [ressource json schema][ressource-schema].
+- [schemas][schemas]  
+  The [ressource schema][ressource-schema] is defined there.
+  If you want to see what a ressource looks like, you can find examples there.
+  The schema can be used to verify objects if they can be used as a ressource.
+  If you write your own [crawler] (LINK: TODO), this may come in handy.
+  The examples are tested and allow test-driven development of the schema.
+  If you have additional ideas about what a ressource is, you can submit
+  it to there.
+- [generators][generators]  
+  These scripts use the [swagger api definition][api-definition] to generate
+  client and server libraries.
+  Whenever the api changes, a [python library][python-library] is created and pushed to [PyPI][pypi].
+  You can use this library to access and test servers and ressources.
+- [scripts][scripts] and [.travis.yml](.travis.yml)  
+  These scripts are used to run the continuous integration tests of the api to ensure
+  it does not contain some obvious mistakes.
 
-The object specification is based on talks with
-- Arne Oberlander
-- Nicco Kunzmann
-- the Bachelor Project team
-- the [content crawler][content-crawl-api]
-- TODO: Thomas Haubner from tutory
+## API
+[api]: #api
 
-Attributes:
+These are the API endpoints defined in the [documentation][arch].
 
-- **title** (required)  
-  The title of the document.
-- **url** (required)  
-  The location of the content.  
-  It should be HTTP/HTTPS.
-- **license** (required)  
-  An array of specified lincese strings.
-  **TODO**: Ask tutory about their model for remix.
-- **provider** (required)  
-  The entity providing this information, e.g. "Westermann" or "Schul-Cloud user xyz"
-  **TODO**: Ask tutory about their model for remix. Maybe this flows into the license.
-- **mimeType** (required)  
-  The mime type as defined in [RFC2046][rfc2046]
-- **contentCategory** (required)  
-  As defined [here][content-category].
-  Values:
-  - `"a"` for atomic
-  - `"l"` for learning object
-  - `"rl"` for lerning object conform to at least one Rahmenlehrplan
-  - `"t"` tool
-- **subjects** (...)  
-  - required if `contentCategory` is `"rl"`
-  - else optional
-  **TODO**: specify an extensible list (recommendation) for subject strings
-- **languages** (required)  
-  A list of languages given by country code.
-  This is specified in [IEEE-LOM, Section 1.3][ieee-lom]
-  Examples: `de`, `de-ch`
-- **class** (optional)  
-  An array specifying the recommended school class.
-  Examples: `[7]`, `[8, 9]`
-- **thumbnail** (optional)  
-  A url to the preview image.
-  This could be the first page of a PDF, a small version of an SVG or PNG image.
-- **size** (optional)  
-  The size inbytes to download the source.  
-  This is recommended for pictures, PDFs, ...
-  Interactive content may vary in size, so this is not a must.  
-  Reference: [IEEE LOM, 4.2][ieee-lom]
-- **dimensions** (optional)  
-  In case of pictures and movies, this is the resolution e.g. `640pxX480px`.
-  In case of a PDF, this could also be "A4" or "letter", ...
-  **TODO**: speicify the dimensions.
-- **duration** (optional)  
-  Form movies and clips, things that take time, this is the duration it takes
-  to go though the object in default time.  
-  Reference: [IEEE LOM, 4.7][ieee-lom]
-- **contextUrl** (optional)  
-  This is the url with moer context about the `url`.
-  The contenxt provides more information about the object like license, versions, ...
-  The url best referes to a page using [schema](http://schema.org/).
-  Example:
-  - url is https://upload.wikimedia.org/wikipedia/commons/8/8a/LOM_base_schema.svg  
-    contextUrl is https://en.wikipedia.org/wiki/File:LOM_base_schema.svg
+## Ressources API
+[ressources]: #ressources
 
+The ressources API is specified in the [api-definition][api-definition].
+You can view it on [swaggerhub][swag1].
+This API is tested and implemented by the [schul_cloud_ressources_server_tests][rstest].
+If you want to implement the API, please refer to the tests.
 
+### Authorization
+The API only specifies how to authenticate.
+Depending on the implementation, it differs where you get the authentication from.
 
+A recommendation is that if you could not authenticate,
+the server shows a page telling you where to get accepted credentials.
 
+The api specifies authentication via api key and [basic authentication][basic-auth].
+If you want to add another authentication mechanism, please [open an issue][new-issue].
 
-### Content Category
-[content-category]: #content-category
+It is clearly defined how to do [basic access authentication][basic-auth].
+Instead of no authentication and basic authentication, 
+the `Authorization` header can be set to support api key authentication.
 
+Example:
 
-## Endpoints
-[endpoints]: #endpoints
+    Authorization: api-key key=base64encodedkey
 
-  
-### Search
+Because the ``Authorization`` header is used, one cannot authenticate with both,
+an api key and basic authentication.
 
-- **/v1/search?q=WORDS?ATTRBUTE=...&ATTRBIUTE2=...?$skip=SKIP?$limit=LIMIT**  
+Further Reading:
+
+- http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-auth-using-authorization-header.html
+- http://www.ietf.org/rfc/rfc2617.txt via http://stackoverflow.com/a/11420667/1320237
+- https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
+- https://tools.ietf.org/html/rfc7235#section-4.2
+
+### Search API
+[search]: #search
+
+- `GET /v1/search?q=WORDS?ATTRBUTE=...&ATTRBIUTE2=...&$skip=SKIP?$limit=LIMIT`  
   Inspiration: [feathers](https://docs.feathersjs.com/api/databases/querying.html)
   - **q** (required)  
     The query string `WORDS`. They should search at least these object attributes:
@@ -139,7 +118,7 @@ Attributes:
   ```
   - `data` is a list of ressource objects sorted by relevance
   - Headers:
-    - `link` as defined in [RFC5988](https://tools.ietf.org/html/rfc5988)  
+    - `Link` as defined in [RFC5988](https://tools.ietf.org/html/rfc5988)  
       Relations: 
       - `previous` defined by all but the first page
       - `next` defined by all but the last page
@@ -176,14 +155,38 @@ DONE
 TODO
 
 - bildungsserver, apache lucene, elixier - statt elastisearch
-
 - Example: http://dsb-client.readthedocs.io/en/latest/descriptions.html
+
+## Automated Build
+
+The automated build is done by [Travis-CI][travis].
+It does the following:
+
+- Test the [schemas][schemas] for validity, usind the tests.
+- Test the [api-definition][api-definition] for validity.
+- Generate a [Python client][pypi]. The client library is used by the [server tests][rstest].
 
 ## Further Reading
 - [README Driven Development][rdd]
+- [HTTP statuses](https://httpstatuses.com/)
+
 
 [rdd]: http://tom.preston-werner.com/2010/08/23/readme-driven-development.html
 [arch]: https://schul-cloud.github.io/blog/2017-04-24/extensible-content-delivery#architecture
 [content-crawl-api]: https://github.com/schul-cloud/schulcloud-content-crawler#attributes
 [rfc2046]: https://tools.ietf.org/html/rfc2046
 [ieee-lom]: http://129.115.100.158/txlor/docs/IEEE_LOM_1484_12_1_v1_Final_Draft.pdf
+[swag1]: https://app.swaggerhub.com/apis/niccokunzmann/schul-cloud-content-api/1.0.0
+[schemas]: ./schemas
+[api-definition]: ./api-definition/
+[pypi]: https://pypi.python.org/pypi/schul-cloud-ressources-api-v1
+[travis]: https://travis-ci.org/schul-cloud/ressources-api-v1
+[api-definition]: api-definition
+[ressource-schema]: schemas/ressource
+[generators]: generators
+[scripts]: scripts
+[python-library]: generators/python_client/
+[rstest]: https://github.com/schul-cloud/schul_cloud_ressources_server_tests
+[new-issue]: https://github.com/schul-cloud/ressources-api-v1/issues/new
+[basic-auth]: https://en.wikipedia.org/wiki/Basic_access_authentication
+[cccc]: https://rfc.zeromq.org/spec:42/C4/

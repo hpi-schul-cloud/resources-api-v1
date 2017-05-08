@@ -1,0 +1,15 @@
+/.travis.yml
+/git_push.sh
+/docs
+*.egg-info
+/build
+/schul_cloud_resources_api_v1.egg-info
+/requirements.txt
+/README.md
+/schul_cloud_resources_server_tests_v1
+/dist
+/test-requirements.txt
+__pycache__
+/.cache
+/.tox
+*.pyc
