@@ -8,3 +8,4 @@
 /test/test_authentication.py
 /schul_cloud_resources_api_v1/auth.py
 /schul_cloud_resources_api_v1/configuration.py
+/schul_cloud_resources_api_v1/fixes.py
