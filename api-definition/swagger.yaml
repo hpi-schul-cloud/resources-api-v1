@@ -1,58 +1,50 @@
----
-swagger: "2.0"
+swagger: '2.0'
 info:
-  description: "This is the specification fo rthe content of Schul-Cloud.\nYou can\
-    \ find more information in the [repository](https://github.com/schul-cloud/resources-api-v1).\n"
-  version: "1.0.0"
-  title: "Schul-Cloud Content API"
-  termsOfService: "http://swagger.io/terms/"
+  description: |
+    This is the specification fo rthe content of Schul-Cloud.
+    You can find more information in the [repository](https://github.com/schul-cloud/resources-api-v1).
+  version: 1.0.0
+  title: Schul-Cloud Content API
+  termsOfService: http://swagger.io/terms/
   contact:
-    name: "Schul-Cloud Development Team"
-    url: "https://schul-cloud.github.io"
+    name: Schul-Cloud Development Team
+    url: https://schul-cloud.github.io
   license:
-    name: "AGPL"
-    url: "https://github.com/schul-cloud/resources-api-v1/blob/master/LICENSE"
-host: "virtserver.swaggerhub.com"
-basePath: "/niccokunzmann/schul-cloud-content-api/1.0.0"
+    name: AGPL
+    url: https://github.com/schul-cloud/resources-api-v1/blob/master/LICENSE
 tags:
-- name: "resource"
-  description: "learning resources"
+- name: resource
+  description: learning resources
   externalDocs:
-    description: "Find out more"
+    description: Find out more
     url: "https://github.com/schul-cloud/resources-api-v1#objects"
-schemes:
-- "https"
-- "http"
+
+# schemes:
+# - http
 paths:
-  /resources/ids:
+  /resources/ids: # http://jsonapi.org/format/#fetching-resources
     get:
       tags:
-      - "resource"
-      summary: "Get the ids of all resources of the client"
-      operationId: "getResourceIds"
+      - resource
+      summary: Get the ids of all resources of the client
+      operationId: getResourceIds
       produces:
-      - "application/vnd.api+json"
-      parameters: []
+      - application/vnd.api+json
       responses:
-        200:
-          description: "Resources are listed."
+        200: # http://jsonapi.org/format/#fetching-resources-responses
+          description: Resources are listed.
           schema:
             $ref: "#/definitions/ResourceIdsResponse"
         401:
-          description: "Unauthorized: The client could not be authorized using the\
-            \ sent credentials."
+          description: "Unauthorized: The client could not be authorized using the sent credentials."
           schema:
             $ref: "#/definitions/ErrorResponse"
         406:
-          description: "Servers MUST respond with a 406 Not Acceptable status code\
-            \ if a request’s Accept header contains the JSON API media type and all\
-            \ instances of that media type are modified with media type parameters."
+          description: "Servers MUST respond with a 406 Not Acceptable status code if a request’s Accept header contains the JSON API media type and all instances of that media type are modified with media type parameters."
           schema:
             $ref: "#/definitions/ErrorResponse"
         415:
-          description: "Servers MUST respond with a 415 Unsupported Media Type status\
-            \ code if a request specifies the header Content-Type: application/vnd.api+json\
-            \ with any media type parameters."
+          description: "Servers MUST respond with a 415 Unsupported Media Type status code if a request specifies the header Content-Type: application/vnd.api+json with any media type parameters."
           schema:
             $ref: "#/definitions/ErrorResponse"
       security:
@@ -61,59 +53,52 @@ paths:
   /resources:
     post:
       tags:
-      - "resource"
-      summary: "Add new resources to the database"
-      operationId: "addResource"
+      - resource
+      summary: Add new resources to the database
+      operationId: addResource
       consumes:
-      - "application/vnd.api+json"
+      - application/vnd.api+json
       produces:
-      - "application/vnd.api+json"
+      - application/vnd.api+json
       parameters:
-      - in: "body"
-        name: "body"
+      - in: body
+        name: body
         description: "A resource to add"
         required: true
         schema:
-          $ref: "#/definitions/ResourcePost"
+          $ref: '#/definitions/ResourcePost'
       responses:
-        201:
+        201: # http://jsonapi.org/format/#crud-creating-responses
+             # http://swagger.io/specification/#responseObject
           description: "The resource has beed created."
+          headers: # http://swagger.io/specification/#headersObject
+            Location:
+              type: string
+              description: "The response SHOULD include a Location header identifying the location of the newly created resource."
           schema:
             $ref: "#/definitions/ResourceResponse"
-          headers:
-            Location:
-              type: "string"
-              description: "The response SHOULD include a Location header identifying\
-                \ the location of the newly created resource."
         400:
           description: "Bad Request: The input provided is not valid JSON."
           schema:
             $ref: "#/definitions/ErrorResponse"
         401:
-          description: "Unauthorized: The client could not be authorized using the\
-            \ sent credentials."
+          description: "Unauthorized: The client could not be authorized using the sent credentials."
           schema:
             $ref: "#/definitions/ErrorResponse"
-        403:
-          description: "A server MUST return 403 Forbidden in response to an unsupported\
-            \ request to create a resource with a client-generated ID."
+        403: # http://jsonapi.org/format/#crud-creating-client-ids
+          description: "A server MUST return 403 Forbidden in response to an unsupported request to create a resource with a client-generated ID."
           schema:
             $ref: "#/definitions/ErrorResponse"
         406:
-          description: "Servers MUST respond with a 406 Not Acceptable status code\
-            \ if a request’s Accept header contains the JSON API media type and all\
-            \ instances of that media type are modified with media type parameters."
+          description: "Servers MUST respond with a 406 Not Acceptable status code if a request’s Accept header contains the JSON API media type and all instances of that media type are modified with media type parameters."
           schema:
             $ref: "#/definitions/ErrorResponse"
         415:
-          description: "Servers MUST respond with a 415 Unsupported Media Type status\
-            \ code if a request specifies the header Content-Type: application/vnd.api+json\
-            \ with any media type parameters."
+          description: "Servers MUST respond with a 415 Unsupported Media Type status code if a request specifies the header Content-Type: application/vnd.api+json with any media type parameters."
           schema:
             $ref: "#/definitions/ErrorResponse"
         422:
-          description: "Unprocessable Entity: The schema of the object provided is\
-            \ not a resource."
+          description: "Unprocessable Entity: The schema of the object provided is not a resource."
           schema:
             $ref: "#/definitions/ErrorResponse"
       security:
@@ -121,18 +106,16 @@ paths:
       - api_key: []
     delete:
       tags:
-      - "resource"
-      summary: "Delete all resources"
-      operationId: "deleteResources"
+      - resource
+      summary: Delete all resources
+      operationId: deleteResources
       produces:
-      - "application/vnd.api+json"
-      parameters: []
+      - application/vnd.api+json
       responses:
-        204:
+        204: # 204 No Content # http://jsonapi.org/format/#crud-deleting-responses-204
           description: "No Content: The resources have been deleted"
         401:
-          description: "Unauthorized: The client could not be authorized using the\
-            \ sent credentials."
+          description: "Unauthorized: The client could not be authorized using the sent credentials."
           schema:
             $ref: "#/definitions/ErrorResponse"
       security:
@@ -141,25 +124,24 @@ paths:
   /resources/{resourceId}:
     get:
       tags:
-      - "resource"
-      summary: "Get a resource."
-      operationId: "getResource"
+      - resource
+      summary: Get a resource.
+      operationId: getResource
       produces:
-      - "application/vnd.api+json"
+      - application/vnd.api+json
       parameters:
-      - name: "resourceId"
-        in: "path"
+      - name: resourceId
+        in: path
         description: "ID of resource that needs to be fetched"
         required: true
-        type: "string"
+        type: string
       responses:
         200:
-          description: "Resources are listed."
+          description: Resources are listed.
           schema:
-            $ref: "#/definitions/ResourceResponse"
+            $ref: '#/definitions/ResourceResponse'
         401:
-          description: "Unauthorized: The client could not be authorized using the\
-            \ sent credentials."
+          description: "Unauthorized: The client could not be authorized using the sent credentials."
           schema:
             $ref: "#/definitions/ErrorResponse"
         404:
@@ -167,15 +149,11 @@ paths:
           schema:
             $ref: "#/definitions/ErrorResponse"
         406:
-          description: "Servers MUST respond with a 406 Not Acceptable status code\
-            \ if a request’s Accept header contains the JSON API media type and all\
-            \ instances of that media type are modified with media type parameters."
+          description: "Servers MUST respond with a 406 Not Acceptable status code if a request’s Accept header contains the JSON API media type and all instances of that media type are modified with media type parameters."
           schema:
             $ref: "#/definitions/ErrorResponse"
         415:
-          description: "Servers MUST respond with a 415 Unsupported Media Type status\
-            \ code if a request specifies the header Content-Type: application/vnd.api+json\
-            \ with any media type parameters."
+          description: "Servers MUST respond with a 415 Unsupported Media Type status code if a request specifies the header Content-Type: application/vnd.api+json with any media type parameters."
           schema:
             $ref: "#/definitions/ErrorResponse"
       security:
@@ -183,23 +161,22 @@ paths:
       - api_key: []
     delete:
       tags:
-      - "resource"
-      summary: "Delete a resource"
-      operationId: "deleteResource"
-      produces:
-      - "application/vnd.api+json"
+      - resource
+      summary: Delete a resource
+      operationId: deleteResource
       parameters:
-      - name: "resourceId"
-        in: "path"
+      - name: resourceId
+        in: path
         description: "ID of resource that needs to be fetched"
         required: true
-        type: "string"
+        type: string
+      produces:
+      - application/vnd.api+json
       responses:
-        204:
+        204: # http://jsonapi.org/format/#crud-deleting
           description: "No Content: Resources are listed."
         401:
-          description: "Unauthorized: The client could not be authorized using the\
-            \ sent credentials."
+          description: "Unauthorized: The client could not be authorized using the sent credentials."
           schema:
             $ref: "#/definitions/ErrorResponse"
         404:
@@ -211,60 +188,96 @@ paths:
       - api_key: []
 securityDefinitions:
   api_key:
-    description: "The server may have security keys for specially trusted applications.\n\
-      The Authorization header field includes the identifier 'api-key' and\nthe base64\
-      \ encoded api key.\n"
-    type: "apiKey"
-    name: "Authorization"
-    in: "header"
+    type: apiKey
+    name: Authorization # This is a header.
+    in: header
+    description: |
+      The server may have security keys for specially trusted applications.
+      The Authorization header field includes the identifier 'api-key' and
+      the base64 encoded api key.
   basic:
-    description: "authenticate agains a pre-set authentication provider"
-    type: "basic"
+    type: basic
+    description: authenticate agains a pre-set authentication provider
 definitions:
   Jsonapi:
-    type: "object"
+    type: object
+    description: "an object describing the server’s implementation"
     required:
-    - "description"
-    - "name"
-    - "source"
+    - name
+    - source
+    - description
     properties:
       name:
-        type: "string"
-        example: "test server"
+        type: string
         description: "The name of the server."
+        example: "test server"
       source:
-        type: "string"
-        example: "https://github.com/schul-cloud/schul_cloud_resources_server_tests"
+        type: string
         description: "The implementation of ther server, i.e. the repository."
+        example: "https://github.com/schul-cloud/schul_cloud_resources_server_tests"
       description:
-        type: "string"
-        example: "This is a test server to use for continuous integration."
+        type: string
         description: "A description of the server."
-    description: "an object describing the server’s implementation"
+        example: "This is a test server to use for continuous integration."
   ResourceResponse:
-    type: "object"
+    type: object
+    description: "The posted object http://jsonapi.org/format/#crud-creating-responses"
     required:
-    - "jsonapi"
+    - jsonapi
+    - links
+    - data
     properties:
       jsonapi:
         $ref: "#/definitions/Jsonapi"
       links:
-        $ref: "#/definitions/ResourceResponse_links"
-      data:
-        $ref: "#/definitions/ResourceResponse_data"
-    description: "The posted object http://jsonapi.org/format/#crud-creating-responses"
+        type: object
+        required:
+        - self
+        properties:
+          self:
+            type: string
+            description: "The url to the resource."
+      data: # http://jsonapi.org/format/#document-resource-objects
+        type: object
+        required:
+        - id
+        - type
+        - attributes
+        properties:
+          id:
+            description: "The id of the object."
+            type: string
+            example: "1"
+          type:
+            description: "The type of the object"
+            type: string
+            example: "resource"
+            enum:
+            - "resource"
+          attributes:
+            $ref: "#/definitions/Resource"
   ResourcePost:
-    type: "object"
+    type: object
+    required:
+    - data
     properties:
       data:
-        $ref: "#/definitions/ResourcePost_data"
+        type: object
+        required:
+        - type
+        - attributes
+        properties:
+          type:
+            $ref: "#/definitions/ResourceType"
+          attributes:
+            $ref: "#/definitions/Resource"
   ResourceType:
-    type: "string"
+    type: string
     description: "The type of the resource."
-    enum:
+    enum:  
     - "resource"
   Resource:
-    type: "object"
+    type: object
     description: "$ref: \"https://github.com/schul-cloud/resources-api-v1/raw/master/schemas/resource/resource.json\""
     example:
       title: "Example Website"
@@ -272,114 +285,85 @@ definitions:
       licenses: []
       mimeType: "text/html"
       contentCategory: "l"
-      languages:
-      - "en-en"
+      languages: ["en-en"]
       thumbnail: "http://cache.schul-cloud.org/thumbs/k32164876328764872384.jpg"
   ResourceIdsResponse:
-    type: "object"
+    type: object
     required:
-    - "data"
-    - "jsonapi"
+    - data
+    - links
+    - jsonapi
     properties:
       jsonapi:
         $ref: "#/definitions/Jsonapi"
       links:
-        $ref: "#/definitions/ResourceIdsResponse_links"
+        type: object
+        required:
+        - self
+        properties:
+          self:
+            type: string
+            description: "The url to the listing."
+            enum:
+            - "/resources/ids"
       data:
-        type: "array"
+        type: array
         items:
-          $ref: "#/definitions/ResourceIdsResponse_data"
+          type: object # http://jsonapi.org/format/#document-resource-objects
+          required:
+          - type
+          - id
+          properties:
+            type:
+              type: string
+              description: "The type is an id."
+              enum:
+              - "id"
+            id:
+              type: string
+              description: "The id of the resource."
+              example: "1"
   ErrorResponse:
-    type: "object"
+    type: object
     required:
-    - "errors"
-    - "jsonapi"
+    - errors
+    - jsonapi
     properties:
       jsonapi:
         $ref: "#/definitions/Jsonapi"
       errors:
-        type: "array"
+        type: array
+        minItems: 1
         items:
           $ref: "#/definitions/ErrorElement"
-        minItems: 1
   ErrorElement:
-    type: "object"
+    description: "A JSONAPI error. http://jsonapi.org/format/#errors"
+    type: object
     required:
-    - "detail"
-    - "status"
-    - "title"
+    - status
+    - title
+    - detail
     properties:
       status:
-        type: "integer"
-        example: 401
+        type: integer
         description: "The error code as defined on this page: https://httpstatuses.com/"
+        example: 401
       title:
-        type: "string"
-        example: "Unauthozied"
+        type: string
         description: "The error name as defined on this page: https://httpstatuses.com/"
+        example: "Unauthozied"
       detail:
-        type: "string"
+        type: string
+        description: "A human readable description on what caused the error and how to remove it."
         example: "Username or password are invalid."
-        description: "A human readable description on what caused the error and how\
-          \ to remove it."
-    description: "A JSONAPI error. http://jsonapi.org/format/#errors"
-  ResourceResponse_links:
-    required:
-    - "self"
-    properties:
-      self:
-        type: "string"
-        description: "The url to the resource."
-  ResourceResponse_data:
-    required:
-    - "attributes"
-    - "id"
-    - "type"
-    properties:
-      id:
-        type: "string"
-        example: "1"
-        description: "The id of the object."
-      type:
-        type: "string"
-        example: "resource"
-        description: "The type of the object"
-        enum:
-        - "resource"
-      attributes:
-        $ref: "#/definitions/Resource"
-  ResourcePost_data:
-    required:
-    - "attributes"
-    - "type"
-    properties:
-      type:
-        $ref: "#/definitions/ResourceType"
-      attributes:
-        $ref: "#/definitions/Resource"
-  ResourceIdsResponse_links:
-    required:
-    - "self"
-    properties:
-      self:
-        type: "string"
-        description: "The url to the listing."
-        enum:
-        - "/resources/ids"
-  ResourceIdsResponse_data:
-    required:
-    - "id"
-    - "type"
-    properties:
-      type:
-        type: "string"
-        description: "The type is an id."
-        enum:
-        - "id"
-      id:
-        type: "string"
-        example: "1"
-        description: "The id of the resource."
 externalDocs:
-  description: "Find out more about the API"
-  url: "https://github.com/schul-cloud/resources-api-v1"
+  description: Find out more about the API
+  url: https://github.com/schul-cloud/resources-api-v1
+# Added by API Auto Mocking Plugin
+host: virtserver.swaggerhub.com
+schemes:
+ - https
+ - http
+# Added by API Auto Mocking Plugin
+basePath: /niccokunzmann/schul-cloud-content-api/1.0.0
+# basePath: /v1
