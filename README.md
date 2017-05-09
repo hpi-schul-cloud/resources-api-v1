@@ -1,11 +1,11 @@
-# ressources-api-v1
+# resources-api-v1
 
 [![CCCC draft](https://img.shields.io/badge/CCCC-draft-yellow.svg)][cccc]
-[![Build Status](https://travis-ci.org/schul-cloud/ressources-api-v1.svg?branch=master)][travis]
-[![PyPI](https://img.shields.io/pypi/v/schul-cloud-ressources-api-v1.svg)][pypi]
+[![Build Status](https://travis-ci.org/schul-cloud/resources-api-v1.svg?branch=master)][travis]
+[![PyPI](https://img.shields.io/pypi/v/schul-cloud-resources-api-v1.svg)][pypi]
 
 The API specification to add content to the Schul-Cloud.
-This is the [Ressources API from the architecture][arch].
+This is the [Resources API from the architecture][arch].
 
 If you like to work on this on bring in new ideas, you can open an issue and discuss with us.
 
@@ -30,7 +30,7 @@ The design process follows the [Collective Code Construction Contract][cccc].
   These scripts use the [swagger api definition][api-definition] to generate
   client and server libraries.
   Whenever the api changes, a [python library][python-library] is created and pushed to [PyPI][pypi].
-  You can use this library to access and test servers and ressources.
+  You can use this library to access and test servers and resources.
 - [scripts][scripts] and [.travis.yml](.travis.yml)  
   These scripts are used to run the continuous integration tests of the api to ensure
   it does not contain some obvious mistakes.
@@ -40,12 +40,12 @@ The design process follows the [Collective Code Construction Contract][cccc].
 
 These are the API endpoints defined in the [documentation][arch].
 
-## Ressources API
-[ressources]: #ressources
+## Resources API
+[resources]: #resources-api
 
-The ressources API is specified in the [api-definition][api-definition].
+The resources API is specified in the [api-definition][api-definition].
 You can view it on [swaggerhub][swag1].
-This API is tested and implemented by the [schul_cloud_ressources_server_tests][rstest].
+This API is tested and implemented by the [schul_cloud_resources_server_tests][rstest].
 If you want to implement the API, please refer to the tests.
 
 ### Authorization
@@ -179,14 +179,14 @@ It does the following:
 [swag1]: https://app.swaggerhub.com/apis/niccokunzmann/schul-cloud-content-api/1.0.0
 [schemas]: ./schemas
 [api-definition]: ./api-definition/
-[pypi]: https://pypi.python.org/pypi/schul-cloud-ressources-api-v1
-[travis]: https://travis-ci.org/schul-cloud/ressources-api-v1
+[pypi]: https://pypi.python.org/pypi/schul-cloud-resources-api-v1
+[travis]: https://travis-ci.org/schul-cloud/resources-api-v1
 [api-definition]: api-definition
 [ressource-schema]: schemas/ressource
 [generators]: generators
 [scripts]: scripts
 [python-library]: generators/python_client/
-[rstest]: https://github.com/schul-cloud/schul_cloud_ressources_server_tests
-[new-issue]: https://github.com/schul-cloud/ressources-api-v1/issues/new
+[rstest]: https://github.com/schul-cloud/schul_cloud_resources_server_tests
+[new-issue]: https://github.com/schul-cloud/resources-api-v1/issues/new
 [basic-auth]: https://en.wikipedia.org/wiki/Basic_access_authentication
 [cccc]: https://rfc.zeromq.org/spec:42/C4/
