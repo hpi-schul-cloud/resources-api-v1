@@ -273,7 +273,7 @@ definitions:
             $ref: "#/definitions/Resource"
           id:
             type: string
-            pattern: "^([!*\"'(),+a-zA-Z0-9$_@.&+-]|%[0-9a-fA-F]{2})+$"
+            pattern: "([!*\"'(),+a-zA-Z0-9$-_@.&+\\-]|%[0-9a-fA-F]{2})+"
             example: "cornelsen-physics-1"
             description: "The id of the object which should be used instead of a generated id by the service. This includes everything you can put into the url path without the \"/\". The characters are specified in the url standard as \"segment\" https://www.w3.org/Addressing/URL/url-spec.txt page 14/15"
   ResourceType:
@@ -309,8 +309,8 @@ definitions:
           self:
             type: string
             description: "The url to the listing."
-            enum:
-            - "/resources/ids"
+            pattern: ".*/resources/ids"
+            example: "http://schul-cloud.org/resources/ids"
       data:
         type: array
         items:
