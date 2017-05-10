@@ -3,9 +3,6 @@
   "id": "https://github.com/schul-cloud/resources-api-v1/raw/master/schemas/resource/resource.json",
   "title": "Resource",
   "description": "Please view the description of the schema here: https://github.com/schul-cloud/resources-api-v1/tree/master/schemas/resource",
-  "$ref": "#/definitions/Resource",
-  "definitions": {
-    "Resource":{
       "type":"object",
       "required": [
         "title",
@@ -66,8 +63,8 @@
         }, "contextUrl": {
           "$ref":"#/definitions/URL"
         }
-      }
-    },
+      },
+  "definitions": {
     "URL":{
       "type": "string",
       "pattern": "^https?://.+$",
