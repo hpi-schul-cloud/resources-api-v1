@@ -44,18 +44,19 @@ Here, you can see how to access the api:
     print(resource)
     
     # add the resource to the server
-    response = api.add_resource(resource)
+    response = api.add_resource({"data": {"type": "resource", "attributes": resource}})
 
     # verify the resource is on the server
-    all_my_resssources_on_the_server = api.get_resource_ids()
-    assert response.id in all_my_resssources_on_the_server
+    all_my_resssources_on_the_server = [
+        _id.id for _id in api.get_resource_ids().data]
+    assert response.data.id in all_my_resssources_on_the_server
 
     # get the resource from the server
-    resource_copy = api.get_resource(response.id)
-    assert resource_copy == resource
+    resource_copy = api.get_resource(response.data.id)
+    assert resource_copy == resource.data.attributes
 
     # delete the resource
-    api.delete_resource(response.id)
+    api.delete_resource(response.data.id)
 
 Authentication
 ~~~~~~~~~~~~~~
