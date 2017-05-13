@@ -27,10 +27,7 @@ A resource is a JSON object with the following attributes:
   It should be HTTP/HTTPS.
 - **license** (required)  
   An array of specified lincese strings.
-  **TODO**: Ask tutory about their model for remix.
-- **provider** (required)  
-  The entity providing this information, e.g. "Westermann" or "Schul-Cloud user xyz"
-  **TODO**: Ask tutory about their model for remix. Maybe this flows into the license.
+  **TODO**: Ask tutory about their model for remix. #5
 - **providerLevel** (??)  
   The source can be classified like this:
   - `schul-cloud` - totally trusted information
