@@ -65,7 +65,7 @@ There are these options for authentication:
 
 - no authentication: this is the default and nothing needs to be done.
 - basic authentication: authentication with user name and password
-- api_key authentication: a key is supplied to authorize the requests.
+- api-key authentication: a key is supplied to authorize the requests.
 
 The authentication is a global state.
 All ``ApiClients`` use this global state.
@@ -82,7 +82,7 @@ You can remove all authentication. This is the default case.
     auth.none()
 
 You can authenticate with username and password. This is `Basic Authentication
-<https://en.wikipedia.org/wiki/Basic_access_authentication>`.
+<https://en.wikipedia.org/wiki/Basic_access_authentication>`__.
 
 .. code:: Python
 
@@ -95,12 +95,12 @@ You can authenticate with an api key.
     auth.api_key("your-api-key")
 
 
-Verifying Resources
-~~~~~~~~~~~~~~~~~~~
+Validating Resources
+~~~~~~~~~~~~~~~~~~~~
 
 When you use resources, you may want to verify if they have the correct format.
 The format is specified in the `resource-schema <https://github.com/schul-cloud/resources-api-v1/tree/master/schemas/resource>`_.
-This schema is included in the api.
+This schema is included in this package.
 
 .. code:: Python
 
@@ -108,7 +108,7 @@ This schema is included in the api.
         get_valid_examples, get_invalid_examples, validate_resource, is_valid_resource
     )
 
-You can test if a resource is valid or not using `is_valid_resource`
+You can test if a resource is valid by calling ``is_valid_resource``
 
 .. code:: Python
 
@@ -124,7 +124,7 @@ If you would like to find out more about why the resource is not valid, you can 
 
     validate_resource({'title': 'hello'})
 
-Which results in an error that the `url` property is not present but is required.
+In this example, it results in an error that the `url` property is not present but is required.
 
 .. code:: Python
 
