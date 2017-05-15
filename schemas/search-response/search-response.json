@@ -1,0 +1,176 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://github.com/schul-cloud/resources-api-v1/raw/master/schemas/search-response/search-response.json",
+  "title": "Search Response",
+  "description": "A response to a search request to a search engine or adapter. You can use this schema to validate such a response.",
+  "type": "object",
+  "required": [
+    "jsonapi",
+    "data",
+    "links"
+  ],
+  "properties": {
+    "jsonapi": {
+      "type": "object",
+      "required": [
+        "version",
+        "meta"
+      ],
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "The version of the jsonapi specification supported.",
+          "enum": ["1.0"]
+        },
+        "meta": {
+          "type": "object",
+          "required": [
+            "name",
+            "source",
+            "description"
+          ],
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "The name of the api.",
+              "example": "Wikipedia Search Adapter"
+            },
+            "source": {
+              "type": "string",
+              "description": "A link to the source code of the pragram.",
+              "example": "https://github.com/schul-cloud/wikipedia-content-adapter"
+            },
+            "description": {
+              "type": "string",
+              "description": "An explanation of what this server does.",
+              "example": "This server is an adapter from Wikipedia to the resource format."
+            }
+          }
+        }
+      }
+    },
+    "data": {
+      "type": "array",
+      "description": "A server MUST respond to a successful request to fetch a resource collection with an array of resource objects or an empty array ([]) as the response document’s primary data.",
+      "items": {
+        "type": "object",
+        "description": "The data object containing the resources.",
+        "required": [
+          "attributes",
+          "type"
+        ],
+        "properties": {
+          "attributes": {
+            "$ref": "../resource/resource.json"
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of the resource.",
+            "enum": ["resource"]
+          },
+          "id": {
+            "$ref": "$/definitions/ID"
+          }
+        }
+      }
+    },
+    "links": {
+      "type": "object",
+      "description": "A collection of links as described in http://jsonapi.org/format/#document-links and http://jsonapi.org/format/#fetching-pagination",
+      "required": [
+        "self",
+        "first",
+        "last",
+        "prev",
+        "next"
+      ],
+      "properties": {
+        "self": {
+          "type": "object",
+          "description": "A link to the queried resource itself.",
+          "required": [
+            "href",
+            "meta"
+          ],
+          "properties": {
+            "href": {
+              "type": "string",
+              "description": "The url to the document.",
+              "example": "TODO"
+            },
+            "meta": {
+              "type": "object",
+              "description": "Some additional information about the search.",
+              "required": [
+                "count"
+              ],
+              "properties": {
+                "count": {
+                  "type": "integer",
+                  "description": "Number of elements returned.",
+                  "example": 5
+                }
+              }
+            }
+          }
+        },
+        "next": {
+          "$ref": "#/definitions/Link"
+        },
+        "last": {
+          "$ref": "#/definitions/Link"
+        },
+        "prev": {
+          "$ref": "#/definitions/Link"
+        },
+        "first": {
+          "$ref": "#/definitions/Link"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Link": {
+      "type": "object",
+      "description": "A link object as defined in the jsonapi specification. http://jsonapi.org/format/#document-links",
+      "oneOf": [
+        {
+          "type": "string",
+          "description": "a string containing the link’s URL.",
+          "example": "http://example.com/posts"
+        },
+        {
+          "type": "object",
+          "required": [
+            "href",
+            "meta"
+          ],
+          "properties": {
+            "href": {
+              "type": "string",
+              "description": "a string containing the link’s URL.",
+              "example": "http://example.com/posts"
+            },
+            "meta": {
+              "type": "object",
+              "description": "a meta object containing non-standard meta-information about the link. This meta information specifies how optional attributes must look like.",
+              "properties": {
+                "count": {
+                  "type": "integer",
+                  "description": "Number of elements.",
+                  "example": 5
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ID": {
+      "type": "string",
+      "description": "The id of the resource for the search engine. This must be the same as for the resource api.",
+      "example": "1",
+      "pattern": "[!*\"'(),+a-zA-Z0-9$-_@.&+\\-]"
+    }
+  }
+}
