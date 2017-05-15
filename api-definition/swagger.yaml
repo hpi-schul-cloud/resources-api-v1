@@ -203,22 +203,33 @@ definitions:
     type: object
     description: "an object describing the server’s implementation"
     required:
-    - name
-    - source
-    - description
+    - version
+    - meta
     properties:
-      name:
+      version:
         type: string
-        description: "The name of the server."
-        example: "test server"
-      source:
-        type: string
-        description: "The implementation of ther server, i.e. the repository."
-        example: "https://github.com/schul-cloud/schul_cloud_resources_server_tests"
-      description:
-        type: string
-        description: "A description of the server."
-        example: "This is a test server to use for continuous integration."
+        description: "The version of the jsonapi which is supported http://jsonapi.org/format/#document-jsonapi-object"
+        enum: ["1.0"]
+      meta:
+        type: object
+        description: "Meta information about the server and the implementation."
+        required:
+        - name
+        - source
+        - description
+        properties:
+          name:
+            type: string
+            description: "The name of the server."
+            example: "test server"
+          source:
+            type: string
+            description: "The implementation of ther server, i.e. the repository."
+            example: "https://github.com/schul-cloud/schul_cloud_resources_server_tests"
+          description:
+            type: string
+            description: "A description of the server."
+            example: "This is a test server to use for continuous integration."
   ResourceResponse:
     type: object
     description: "The posted object http://jsonapi.org/format/#crud-creating-responses"
@@ -273,9 +284,9 @@ definitions:
             $ref: "#/definitions/Resource"
           id:
             type: string
-            pattern: "([!*\"'(),+a-zA-Z0-9$-_@.&+\\-]|%[0-9a-fA-F]{2})+"
+            pattern: "([!*\"'(),+a-zA-Z0-9$_@.&+\\-])+"
             example: "cornelsen-physics-1"
-            description: "The id of the object which should be used instead of a generated id by the service. This includes everything you can put into the url path without the \"/\". The characters are specified in the url standard as \"segment\" https://www.w3.org/Addressing/URL/url-spec.txt page 14/15"
+            description: "The id of the object which should be used instead of a generated id by the service. This includes everything you can put into the url path without the \"/\" and \"%HH\" hexadecimal encoded characters. The characters are specified in the url standard as \"segment\" https://www.w3.org/Addressing/URL/url-spec.txt page 14/15"
   ResourceType:
     type: string
     description: "The type of the resource."
