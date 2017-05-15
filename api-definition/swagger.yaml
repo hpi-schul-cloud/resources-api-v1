@@ -203,22 +203,33 @@ definitions:
     type: object
     description: "an object describing the server’s implementation"
     required:
-    - name
-    - source
-    - description
+    - version
+    - meta
     properties:
-      name:
+      version:
         type: string
-        description: "The name of the server."
-        example: "test server"
-      source:
-        type: string
-        description: "The implementation of ther server, i.e. the repository."
-        example: "https://github.com/schul-cloud/schul_cloud_resources_server_tests"
-      description:
-        type: string
-        description: "A description of the server."
-        example: "This is a test server to use for continuous integration."
+        description: "The version of the jsonapi which is supported http://jsonapi.org/format/#document-jsonapi-object"
+        enum: ["1.0"]
+      meta:
+        type: object
+        description: "Meta information about the server and the implementation."
+        required:
+        - name
+        - source
+        - description
+        properties:
+          name:
+            type: string
+            description: "The name of the server."
+            example: "test server"
+          source:
+            type: string
+            description: "The implementation of ther server, i.e. the repository."
+            example: "https://github.com/schul-cloud/schul_cloud_resources_server_tests"
+          description:
+            type: string
+            description: "A description of the server."
+            example: "This is a test server to use for continuous integration."
   ResourceResponse:
     type: object
     description: "The posted object http://jsonapi.org/format/#crud-creating-responses"
