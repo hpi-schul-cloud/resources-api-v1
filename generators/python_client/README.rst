@@ -31,7 +31,7 @@ If you do not have a server, you can get a test server from the package
     client = ApiClient(url)
     api = ResourceApi(client)
 
-The `api` object gives access to the server.
+The ``api`` object gives access to the server.
 Here, you can see how to access the api:
 
 .. code:: Python
