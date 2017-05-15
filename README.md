@@ -79,6 +79,8 @@ Further Reading:
 ### Search API
 [search]: #search
 
+Issue: [#21](https://github.com/schul-cloud/resources-api-v1/issues/21)
+
 - `GET /v1/search?q=WORDS?ATTRBUTE=...&ATTRBIUTE2=...&$skip=SKIP?$limit=LIMIT`  
   Inspiration: [feathers](https://docs.feathersjs.com/api/databases/querying.html)
   - **q** (required)  
