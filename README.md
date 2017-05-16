@@ -81,15 +81,15 @@ Further Reading:
 
 Issue: [#21](https://github.com/schul-cloud/resources-api-v1/issues/21)
 
-- `GET /v1/search?q=WORDS?ATTRBUTE=...&ATTRBIUTE2=...&$skip=SKIP?$limit=LIMIT`  
+- `GET /v1/search?q=WORDS?filter[ATTRBUTE]=...&filter[ATTRBIUTE2]=...&page[offset]=SKIP?page[limit]=LIMIT`  
   Inspiration: [feathers](https://docs.feathersjs.com/api/databases/querying.html)
   - **q** (required)  
     The query string `WORDS`. They should search at least these object attributes:
     - title
     - content
   - **ATTRIBUTE** (optional)  
-    To filter attributes of the objects.
-    Example: `title=my%20title`  
+    To filter attributes of the objects, see [the jsonapi definitions][filter].
+    Example: `filter[title]=my%20title`  
     All objects returned must have the filter applied.
     Filtering must work with strings. It can work with other types.
     If an attribute is filtered which is an array, the value must be inside the array.
@@ -97,34 +97,29 @@ Issue: [#21](https://github.com/schul-cloud/resources-api-v1/issues/21)
     Example:
     ```
     objects: [ {"license": ["MIT", "GPL"]}, {"license": ["MIT"]} ]
-    query: "?license=GPL"
+    query: `?filter[license]=GPL`
     result:  [ {"license": ["MIT", "GPL"]} ]
     ```
   - pagination inspired by [feathers](https://docs.feathersjs.com/api/databases/common.html#pagination).
-    - `$skip` (optional)   
+    - `page[offset]` (optional)   
       a positive integer  
       how many object shall be skipped.
       If more objects are skipped than are there, data is empty.
-    - `$limit` (optional)
+    - `page[limit]` (optional)
       how many object shall be returned.  
       This is the maximum number of objects that shall be returned.
       Less objects can be returned.
+
   Result:
-  ```
-  {
-    "total": "<total number of records>",
-    "limit": "<max number of items per page>",
-    "skip": "<number of skipped items (offset)>",
-    "data": [/* data */]
-  }
-  ```
-  - `data` is a list of ressource objects sorted by relevance
+  - See the [examples](schemas/search-response/examples/valid)
+  - The [schema](schemas/search-response) for the body
   - Headers:
     - `Link` as defined in [RFC5988](https://tools.ietf.org/html/rfc5988)  
       Relations: 
       - `previous` defined by all but the first page
       - `next` defined by all but the last page
       Example: `Link: </TheBook/chapter2>; rel="previous", </TheBook/chapter4>; rel="next"`
+    - `Content-Type`: `application/vnd.api+json`
     
 
 ## Research
@@ -192,3 +187,4 @@ It does the following:
 [new-issue]: https://github.com/schul-cloud/resources-api-v1/issues/new
 [basic-auth]: https://en.wikipedia.org/wiki/Basic_access_authentication
 [cccc]: https://rfc.zeromq.org/spec:42/C4/
+[filter]: http://jsonapi.org/format/#fetching-filtering
