@@ -114,11 +114,6 @@ Issue: [#21](https://github.com/schul-cloud/resources-api-v1/issues/21)
   - See the [examples](schemas/search-response/examples/valid)
   - The [schema](schemas/search-response) for the body
   - Headers:
-    - `Link` as defined in [RFC5988](https://tools.ietf.org/html/rfc5988)  
-      Relations: 
-      - `previous` defined by all but the first page
-      - `next` defined by all but the last page
-      Example: `Link: </TheBook/chapter2>; rel="previous", </TheBook/chapter4>; rel="next"`
     - `Content-Type`: `application/vnd.api+json`
     
 
