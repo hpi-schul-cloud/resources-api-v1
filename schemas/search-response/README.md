@@ -31,6 +31,7 @@ A successful response is
 - **404**  
   The server must not return a 404 response if no resources were found.
   The server instead returns a `200 OK` with an empty `data` array.
+  404 is reseved for invalid paths.
 
 ## Search Reponse
 [search-response]: #search-response
