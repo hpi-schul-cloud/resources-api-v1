@@ -81,7 +81,7 @@ Further Reading:
 
 Issue: [#21](https://github.com/schul-cloud/resources-api-v1/issues/21)
 
-- `GET /v1/search?q=WORDS?filter[ATTRBUTE]=...&filter[ATTRBIUTE2]=...&page[offset]=SKIP?page[limit]=LIMIT`  
+- `GET /v1/search?q=WORDS?filter[ATTRIBUTE]=...&filter[ATTRIBIUTE2]=...&page[offset]=SKIP?page[limit]=LIMIT`  
   Inspiration: [feathers](https://docs.feathersjs.com/api/databases/querying.html)
   - **q** (required)  
     The query string `WORDS`. They should search at least these object attributes:
