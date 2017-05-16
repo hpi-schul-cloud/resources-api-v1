@@ -1,0 +1,100 @@
+{
+  "jsonapi": {
+    "version": "1.0",
+    "meta" : {
+      "name": "Example Server",
+      "source": "https://github.com/schul-cloud/resources-api-v1",
+      "description": "This is just an eampel server for the search API."
+    }
+  },
+  "links": {
+    "self": {
+      "meta": {
+        "count": 5,
+        "offset": 15,
+        "limit": 5
+      }
+    },
+    "first": "http://url.used.to/get/this/document?page[offset]=0&page[limit]=5",
+    "last": "http://url.used.to/get/this/document?page[offset]=50&page[limit]=5",
+    "prev": "http://url.used.to/get/this/document?page[offset]=10&page[limit]=5",
+    "next": "http://url.used.to/get/this/document?page[offset]=20&page[limit]=5"
+  },
+  "data": [
+    {
+      "type": "resource",
+      "id": "resource-1",
+      "links": {
+        "self": "http://resource.server/resources/resource-1"
+      },
+      "attributes": {
+        "title": "Example Website",
+        "url": "https://example.org",
+        "licenses": [],
+        "mimeType": "text/html",
+        "contentCategory": "l",
+        "languages": ["en-en"]
+      }
+    },
+    {
+      "type": "resource",
+      "id": "resource-2",
+      "links": {
+        "self": "http://resource.server/resources/resource-2"
+      },
+      "attributes": {
+        "title": "Example Website",
+        "url": "https://example.org",
+        "licenses": [],
+        "mimeType": "text/html",
+        "contentCategory": "l",
+        "languages": ["en-en"]
+      }
+    },
+    {
+      "type": "resource",
+      "id": "resource-3",
+      "links": {
+        "self": "http://resource.server/resources/resource-3"
+      },
+      "attributes": {
+        "title": "Example Website",
+        "url": "https://example.org",
+        "licenses": [],
+        "mimeType": "text/html",
+        "contentCategory": "l",
+        "languages": ["en-en"]
+      }
+    },
+    {
+      "type": "resource",
+      "id": "resource-4",
+      "links": {
+        "self": "http://resource.server/resources/resource-4"
+      },
+      "attributes": {
+        "title": "Example Website",
+        "url": "https://example.org",
+        "licenses": [],
+        "mimeType": "text/html",
+        "contentCategory": "l",
+        "languages": ["en-en"]
+      }
+    },
+    {
+      "type": "resource",
+      "id": "resource-5",
+      "links": {
+        "self": "http://resource.server/resources/resource-5"
+      },
+      "attributes": {
+        "title": "Example Website",
+        "url": "https://example.org",
+        "licenses": [],
+        "mimeType": "text/html",
+        "contentCategory": "l",
+        "languages": ["en-en"]
+      }
+    }
+  ]
+}

@@ -103,12 +103,24 @@
               "type": "object",
               "description": "Some additional information about the search.",
               "required": [
-                "count"
+               "count",
+               "offset",
+               "limit"
               ],
               "properties": {
                 "count": {
                   "type": "integer",
                   "description": "Number of elements returned.",
+                  "example": 5
+                },
+                "offset": {
+                  "type": "integer",
+                  "description": "Number of elements to skip.",
+                  "example": 15
+                },
+                "limit": {
+                  "type": "integer",
+                  "description": "Number of elements that were requested.",
                   "example": 5
                 }
               }
