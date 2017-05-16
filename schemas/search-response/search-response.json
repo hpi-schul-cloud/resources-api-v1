@@ -70,7 +70,7 @@
             "enum": ["resource"]
           },
           "id": {
-            "$ref": "$/definitions/ID"
+            "$ref": "#/definitions/ID"
           }
         }
       }
@@ -132,7 +132,6 @@
   },
   "definitions": {
     "Link": {
-      "type": "object",
       "description": "A link object as defined in the jsonapi specification. http://jsonapi.org/format/#document-links",
       "oneOf": [
         {

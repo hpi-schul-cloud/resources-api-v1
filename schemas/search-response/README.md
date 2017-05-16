@@ -44,7 +44,7 @@ Fields:
   Informtation about the server.
   ```
   {
-    "jsonapi": "1.0",
+    "version": "1.0",
     "meta" : {
       "name": "Example Server",
       "source": "https://github.com/schul-cloud/resources-api-v1",
@@ -65,9 +65,9 @@ Fields:
         "limit": 5
       }
     },
-    "first": "http://url.used.to/get/this/document?page[offset]=0&page[limit]=5"
-    "last": "http://url.used.to/get/this/document?page[offset]=50&page[limit]=5"
-    "prev": "http://url.used.to/get/this/document?page[offset]=10&page[limit]=5"
+    "first": "http://url.used.to/get/this/document?page[offset]=0&page[limit]=5",
+    "last": "http://url.used.to/get/this/document?page[offset]=50&page[limit]=5",
+    "prev": "http://url.used.to/get/this/document?page[offset]=10&page[limit]=5",
     "next": "http://url.used.to/get/this/document?page[offset]=20&page[limit]=5"
   }
   ```
