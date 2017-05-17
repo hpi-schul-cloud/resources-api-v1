@@ -1,0 +1,121 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://github.com/schul-cloud/resources-api-v1/raw/master/schemas/error/error.json",
+  "title": "Error",
+  "description": "This is the more specialized json schema for errors. http://jsonapi.org/format/#error-objects",
+  "required": [
+    "jsonapi",
+    "errors"
+  ],
+  "properties" : {
+    "jsonapi": {
+      "$ref": "../search-response/search-response.json#/definitions/JSONAPI"
+    },
+    "errors" : {
+      "type": "array",
+      "description": "Error objects MUST be returned as an array keyed by errors in the top level of a JSON API document.",
+      "items" : [
+        {
+          "$ref": "#/definitions/HTTPError"
+        }
+      ],
+      "additionalItems": true,
+      "minItems": 1
+    }
+  },
+  
+  "definitions": {
+    "HTTPError": {
+      "type": "object",
+      "description": "The error object representing the http error status, see http://jsonapi.org/format/#error-objects for additional attributes.",
+      "required": [
+        "status",
+        "title",
+        "detail"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "The http error code.",
+          "example": "400"
+        },
+        "title": {
+          "type": "string",
+          "description": "the HTTP status code applicable to this problem, expressed as a string value.",
+          "example": "Bad Request"
+        },
+        "detail": {
+          "type": "string",
+          "description": "A description of the error.",
+          "example": "You should posted returned valid json."
+        }
+      },
+      "oneOf": [
+        {"properties": {"status": {"enum": [ "100" ]}, "title": { "enum": ["Continue"                              ]}}},
+        {"properties": {"status": {"enum": [ "101" ]}, "title": { "enum": ["Switching Protocols"                   ]}}},
+        {"properties": {"status": {"enum": [ "102" ]}, "title": { "enum": ["Processing"                            ]}}},
+        {"properties": {"status": {"enum": [ "200" ]}, "title": { "enum": ["OK"                                    ]}}},
+        {"properties": {"status": {"enum": [ "201" ]}, "title": { "enum": ["Created"                               ]}}},
+        {"properties": {"status": {"enum": [ "202" ]}, "title": { "enum": ["Accepted"                              ]}}},
+        {"properties": {"status": {"enum": [ "203" ]}, "title": { "enum": ["Non-authoritative Information"         ]}}},
+        {"properties": {"status": {"enum": [ "204" ]}, "title": { "enum": ["No Content"                            ]}}},
+        {"properties": {"status": {"enum": [ "205" ]}, "title": { "enum": ["Reset Content"                         ]}}},
+        {"properties": {"status": {"enum": [ "206" ]}, "title": { "enum": ["Partial Content"                       ]}}},
+        {"properties": {"status": {"enum": [ "207" ]}, "title": { "enum": ["Multi-Status"                          ]}}},
+        {"properties": {"status": {"enum": [ "208" ]}, "title": { "enum": ["Already Reported"                      ]}}},
+        {"properties": {"status": {"enum": [ "226" ]}, "title": { "enum": ["IM Used"                               ]}}},
+        {"properties": {"status": {"enum": [ "300" ]}, "title": { "enum": ["Multiple Choices"                      ]}}},
+        {"properties": {"status": {"enum": [ "301" ]}, "title": { "enum": ["Moved Permanently"                     ]}}},
+        {"properties": {"status": {"enum": [ "302" ]}, "title": { "enum": ["Found"                                 ]}}},
+        {"properties": {"status": {"enum": [ "303" ]}, "title": { "enum": ["See Other"                             ]}}},
+        {"properties": {"status": {"enum": [ "304" ]}, "title": { "enum": ["Not Modified"                          ]}}},
+        {"properties": {"status": {"enum": [ "305" ]}, "title": { "enum": ["Use Proxy"                             ]}}},
+        {"properties": {"status": {"enum": [ "307" ]}, "title": { "enum": ["Temporary Redirect"                    ]}}},
+        {"properties": {"status": {"enum": [ "308" ]}, "title": { "enum": ["Permanent Redirect"                    ]}}},
+        {"properties": {"status": {"enum": [ "400" ]}, "title": { "enum": ["Bad Request"                           ]}}},
+        {"properties": {"status": {"enum": [ "401" ]}, "title": { "enum": ["Unauthorized"                          ]}}},
+        {"properties": {"status": {"enum": [ "402" ]}, "title": { "enum": ["Payment Required"                      ]}}},
+        {"properties": {"status": {"enum": [ "403" ]}, "title": { "enum": ["Forbidden"                             ]}}},
+        {"properties": {"status": {"enum": [ "404" ]}, "title": { "enum": ["Not Found"                             ]}}},
+        {"properties": {"status": {"enum": [ "405" ]}, "title": { "enum": ["Method Not Allowed"                    ]}}},
+        {"properties": {"status": {"enum": [ "406" ]}, "title": { "enum": ["Not Acceptable"                        ]}}},
+        {"properties": {"status": {"enum": [ "407" ]}, "title": { "enum": ["Proxy Authentication Required"         ]}}},
+        {"properties": {"status": {"enum": [ "408" ]}, "title": { "enum": ["Request Timeout"                       ]}}},
+        {"properties": {"status": {"enum": [ "409" ]}, "title": { "enum": ["Conflict"                              ]}}},
+        {"properties": {"status": {"enum": [ "410" ]}, "title": { "enum": ["Gone"                                  ]}}},
+        {"properties": {"status": {"enum": [ "411" ]}, "title": { "enum": ["Length Required"                       ]}}},
+        {"properties": {"status": {"enum": [ "412" ]}, "title": { "enum": ["Precondition Failed"                   ]}}},
+        {"properties": {"status": {"enum": [ "413" ]}, "title": { "enum": ["Payload Too Large"                     ]}}},
+        {"properties": {"status": {"enum": [ "414" ]}, "title": { "enum": ["Request-URI Too Long"                  ]}}},
+        {"properties": {"status": {"enum": [ "415" ]}, "title": { "enum": ["Unsupported Media Type"                ]}}},
+        {"properties": {"status": {"enum": [ "416" ]}, "title": { "enum": ["Requested Range Not Satisfiable"       ]}}},
+        {"properties": {"status": {"enum": [ "417" ]}, "title": { "enum": ["Expectation Failed"                    ]}}},
+        {"properties": {"status": {"enum": [ "418" ]}, "title": { "enum": ["I'm a teapot"                          ]}}},
+        {"properties": {"status": {"enum": [ "421" ]}, "title": { "enum": ["Misdirected Request"                   ]}}},
+        {"properties": {"status": {"enum": [ "422" ]}, "title": { "enum": ["Unprocessable Entity"                  ]}}},
+        {"properties": {"status": {"enum": [ "423" ]}, "title": { "enum": ["Locked"                                ]}}},
+        {"properties": {"status": {"enum": [ "424" ]}, "title": { "enum": ["Failed Dependency"                     ]}}},
+        {"properties": {"status": {"enum": [ "426" ]}, "title": { "enum": ["Upgrade Required"                      ]}}},
+        {"properties": {"status": {"enum": [ "428" ]}, "title": { "enum": ["Precondition Required"                 ]}}},
+        {"properties": {"status": {"enum": [ "429" ]}, "title": { "enum": ["Too Many Requests"                     ]}}},
+        {"properties": {"status": {"enum": [ "431" ]}, "title": { "enum": ["Request Header Fields Too Large"       ]}}},
+        {"properties": {"status": {"enum": [ "444" ]}, "title": { "enum": ["Connection Closed Without Response"    ]}}},
+        {"properties": {"status": {"enum": [ "451" ]}, "title": { "enum": ["Unavailable For Legal Reasons"         ]}}},
+        {"properties": {"status": {"enum": [ "499" ]}, "title": { "enum": ["Client Closed Request"                 ]}}},
+        {"properties": {"status": {"enum": [ "500" ]}, "title": { "enum": ["Internal Server Error"                 ]}}},
+        {"properties": {"status": {"enum": [ "501" ]}, "title": { "enum": ["Not Implemented"                       ]}}},
+        {"properties": {"status": {"enum": [ "502" ]}, "title": { "enum": ["Bad Gateway"                           ]}}},
+        {"properties": {"status": {"enum": [ "503" ]}, "title": { "enum": ["Service Unavailable"                   ]}}},
+        {"properties": {"status": {"enum": [ "504" ]}, "title": { "enum": ["Gateway Timeout"                       ]}}},
+        {"properties": {"status": {"enum": [ "505" ]}, "title": { "enum": ["HTTP Version Not Supported"            ]}}},
+        {"properties": {"status": {"enum": [ "506" ]}, "title": { "enum": ["Variant Also Negotiates"               ]}}},
+        {"properties": {"status": {"enum": [ "507" ]}, "title": { "enum": ["Insufficient Storage"                  ]}}},
+        {"properties": {"status": {"enum": [ "508" ]}, "title": { "enum": ["Loop Detected"                         ]}}},
+        {"properties": {"status": {"enum": [ "510" ]}, "title": { "enum": ["Not Extended"                          ]}}},
+        {"properties": {"status": {"enum": [ "511" ]}, "title": { "enum": ["Network Authentication Required"       ]}}},
+        {"properties": {"status": {"enum": [ "599" ]}, "title": { "enum": ["Network Connect Timeout Error"         ]}}}
+
+      ]
+    }
+  }
+}

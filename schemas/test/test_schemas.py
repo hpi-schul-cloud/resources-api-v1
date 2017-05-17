@@ -18,7 +18,8 @@ SCHEMAS = os.path.join(HERE, "..")
 schemas = {
     "curriculum" : os.path.join(SCHEMAS, "curriculum", "curriculum.json"),
     "resource" : os.path.join(SCHEMAS, "resource", "resource.json"),
-    "search-response" : os.path.join(SCHEMAS, "search-response", "search-response.json")
+    "search-response" : os.path.join(SCHEMAS, "search-response", "search-response.json"),
+    "error" : os.path.join(SCHEMAS, "error", "error.json"),
 }
 
 try:

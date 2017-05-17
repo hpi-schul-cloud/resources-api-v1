@@ -1,0 +1,12 @@
+{
+  "jsonapi": {
+    "version" : "1.0",
+    "meta": {
+      "name" : "Test Server Response",
+      "source" : "https://github.com/schul-cloud/resources-api-v1/issues/42",
+      "description": "This is a test server yielding an error."
+    }
+  },
+  "errors": [
+  ]
+}
