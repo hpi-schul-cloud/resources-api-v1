@@ -17,14 +17,14 @@ The design process follows the [Collective Code Construction Contract][cccc].
 - [api-definition][api-definition]  
   Here, you can find the swagger API definition.
   You can try it out [on swaggerhub][swag1].
-  The api definition is incomplete and uses the [ressource json schema][ressource-schema].
+  The api definition is incomplete and uses the [resource json schema][resource-schema].
 - [schemas][schemas]  
-  The [ressource schema][ressource-schema] is defined there.
-  If you want to see what a ressource looks like, you can find examples there.
-  The schema can be used to verify objects if they can be used as a ressource.
+  The [resource schema][resource-schema] is defined there.
+  If you want to see what a resource looks like, you can find examples there.
+  The schema can be used to verify objects if they can be used as a resource.
   If you write your own [crawler] (LINK: TODO), this may come in handy.
   The examples are tested and allow test-driven development of the schema.
-  If you have additional ideas about what a ressource is, you can submit
+  If you have additional ideas about what a resource is, you can submit
   it to there.
 - [generators][generators]  
   These scripts use the [swagger api definition][api-definition] to generate
@@ -174,7 +174,7 @@ It does the following:
 [pypi]: https://pypi.python.org/pypi/schul-cloud-resources-api-v1
 [travis]: https://travis-ci.org/schul-cloud/resources-api-v1
 [api-definition]: api-definition
-[ressource-schema]: schemas/ressource
+[resource-schema]: schemas/resource
 [generators]: generators
 [scripts]: scripts
 [python-library]: generators/python_client/
