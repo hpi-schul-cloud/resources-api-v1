@@ -48,6 +48,8 @@ You can view it on [swaggerhub][swag1].
 This API is tested and implemented by the [schul_cloud_resources_server_tests][rstest].
 If you want to implement the API, please refer to the tests.
 
+Errors follow the [error schema][error-schema].
+
 ### Authorization
 The API only specifies how to authenticate.
 Depending on the implementation, it differs where you get the authentication from.
@@ -115,7 +117,13 @@ Issue: [#21](https://github.com/schul-cloud/resources-api-v1/issues/21)
   - The [schema](schemas/search-response) for the body
   - Headers:
     - `Content-Type`: `application/vnd.api+json`
-    
+  - Errors, see the [error][error-schema] schema:
+    - 400  
+      also see [error object](http://jsonapi.org/format/#error-objects) on how to create informative errors about query parameters
+      - [unprocessable query parameters](http://jsonapi.org/format/#query-parameters)
+      - [sorting](http://jsonapi.org/format/#fetching-sorting)
+        
+        > If the server does not support sorting as specified in the query parameter sort, it MUST return 400 Bad Request.
 
 ## Research
 
@@ -183,3 +191,4 @@ It does the following:
 [basic-auth]: https://en.wikipedia.org/wiki/Basic_access_authentication
 [cccc]: https://rfc.zeromq.org/spec:42/C4/
 [filter]: http://jsonapi.org/format/#fetching-filtering
+[error-schema]: schemas/error
