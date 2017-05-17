@@ -44,6 +44,9 @@ Attibutes of the **first** error:
     In case of a validation error, include the problematic attribute.
     Include source code, ... .
 
+Errors following this error may contain more information.
+Please see the [example][api-ex] for useful errors such as validation.
+
 ## Related Work
 See [stackoverflow](http://stackoverflow.com/a/25637397/1320237) for the jsonschema inplementation hints.
 
