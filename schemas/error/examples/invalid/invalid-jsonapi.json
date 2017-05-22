@@ -1,0 +1,16 @@
+{
+  "jsonapi": {
+    "meta": {
+      "name" : "Test Server Response",
+      "source" : "https://github.com/schul-cloud/resources-api-v1/issues/42",
+      "description": "This is a test server yielding an error."
+    }
+  },
+  "errors": [
+    {
+      "title": "Not Found",
+      "status": "404",
+      "detail": "The requested resource could not be found."
+    }
+  ]
+}

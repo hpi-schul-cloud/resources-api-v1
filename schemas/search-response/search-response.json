@@ -11,43 +11,7 @@
   ],
   "properties": {
     "jsonapi": {
-      "type": "object",
-      "required": [
-        "version",
-        "meta"
-      ],
-      "properties": {
-        "version": {
-          "type": "string",
-          "description": "The version of the jsonapi specification supported.",
-          "enum": ["1.0"]
-        },
-        "meta": {
-          "type": "object",
-          "required": [
-            "name",
-            "source",
-            "description"
-          ],
-          "properties": {
-            "name": {
-              "type": "string",
-              "description": "The name of the api.",
-              "example": "Wikipedia Search Adapter"
-            },
-            "source": {
-              "type": "string",
-              "description": "A link to the source code of the pragram.",
-              "example": "https://github.com/schul-cloud/wikipedia-content-adapter"
-            },
-            "description": {
-              "type": "string",
-              "description": "An explanation of what this server does.",
-              "example": "This server is an adapter from Wikipedia to the resource format."
-            }
-          }
-        }
-      }
+      "$ref": "#/definitions/JSONAPI"
     },
     "data": {
       "type": "array",
@@ -187,6 +151,45 @@
       "description": "The id of the resource for the search engine. This must be the same as for the resource api.",
       "example": "1",
       "pattern": "[!*\"'(),+a-zA-Z0-9$-_@.&+\\-]"
+    },
+    "JSONAPI": {
+      "type": "object",
+      "required": [
+        "version",
+        "meta"
+      ],
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "The version of the jsonapi specification supported.",
+          "enum": ["1.0"]
+        },
+        "meta": {
+          "type": "object",
+          "required": [
+            "name",
+            "source",
+            "description"
+          ],
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "The name of the api.",
+              "example": "Wikipedia Search Adapter"
+            },
+            "source": {
+              "type": "string",
+              "description": "A link to the source code of the pragram.",
+              "example": "https://github.com/schul-cloud/wikipedia-content-adapter"
+            },
+            "description": {
+              "type": "string",
+              "description": "An explanation of what this server does.",
+              "example": "This server is an adapter from Wikipedia to the resource format."
+            }
+          }
+        }
+      }
     }
   }
 }
