@@ -87,6 +87,8 @@ Fields:
   - If there are no resources, `first`, `last`, `prev` and `next` MUST be `null`.
   - If there is no end in sight, `last` MUST be `null`
   - If the last page is reached, `next` MUST be `null`.
+  - If `last` is given, `next` must be given.
+  - If `first` is given, `prev` must be given.
   - On all pages except the last, the sever SHOULD return as many objects as in `limit`, thus `count` SHOULD be equal to `limit`.
   - If `count` is less than `limit`, the `next` link MUST not skip objects.
   
