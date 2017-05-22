@@ -1,5 +1,7 @@
 # License
 
+Currently in discussion: [#5](https://github.com/schul-cloud/resources-api-v1/issues/5)
+
 This is a schema for licenses.
 As outlined in [this answer][sof1],
 we can define different schemas for different licenses and a license
