@@ -84,7 +84,7 @@ Further Reading:
 Issue: [#21](https://github.com/schul-cloud/resources-api-v1/issues/21)
 
 - `GET /v1/search?q=WORDS?filter[ATTRIBUTE]=...&filter[ATTRIBIUTE2]=...&page[offset]=SKIP?page[limit]=LIMIT`  
-  Inspiration: [feathers](https://docs.feathersjs.com/api/databases/querying.html)
+  Search for some words and filter the result.
   - **q** (required)  
     The query string `WORDS`. They should search at least these object attributes:
     - title
@@ -102,7 +102,7 @@ Issue: [#21](https://github.com/schul-cloud/resources-api-v1/issues/21)
     query: `?filter[license]=GPL`
     result:  [ {"license": ["MIT", "GPL"]} ]
     ```
-  - pagination inspired by [feathers](https://docs.feathersjs.com/api/databases/common.html#pagination).
+  - pagination according to [feathers](http://jsonapi.org/format/#fetching-pagination).
     - `page[offset]` (optional)   
       a positive integer  
       how many object shall be skipped.
@@ -124,6 +124,11 @@ Issue: [#21](https://github.com/schul-cloud/resources-api-v1/issues/21)
       - [sorting](http://jsonapi.org/format/#fetching-sorting)
         
         > If the server does not support sorting as specified in the query parameter sort, it MUST return 400 Bad Request.
+
+Related Work:
+- Inspiration: [feathers](https://docs.feathersjs.com/api/databases/querying.html)
+- pagination inspired by [feathers](https://docs.feathersjs.com/api/databases/common.html#pagination).
+
 
 ## Research
 
