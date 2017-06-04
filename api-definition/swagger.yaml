@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   description: |
-    This is the specification fo rthe content of Schul-Cloud.
+    This is the specification for the content of Schul-Cloud.
     You can find more information in the [repository](https://github.com/schul-cloud/resources-api-v1).
   version: 1.0.0
   title: Schul-Cloud Content API
