@@ -18,9 +18,6 @@ tags:
   externalDocs:
     description: Find out more
     url: "https://github.com/schul-cloud/resources-api-v1#objects"
-
-# schemes:
-# - http
 paths:
   /resources/ids: # http://jsonapi.org/format/#fetching-resources
     get:
@@ -375,11 +372,8 @@ definitions:
 externalDocs:
   description: Find out more about the API
   url: https://github.com/schul-cloud/resources-api-v1
-# Added by API Auto Mocking Plugin
-host: virtserver.swaggerhub.com
+host: scrst.quelltext.eu
+basePath: /v1
 schemes:
- - https
- - http
-# Added by API Auto Mocking Plugin
-basePath: /niccokunzmann/schul-cloud-content-api/1.0.0
-# basePath: /v1
+- http
+- https
