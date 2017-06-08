@@ -6,8 +6,13 @@
 
 The API specification to add content to the Schul-Cloud.
 This is the [Resources API from the architecture][arch].
+It should be the minimal example of what works for all content providers.
 
-If you like to work on this on bring in new ideas, you can open an issue and discuss with us.
+## Communication
+
+- If you like to work on this on bring in new ideas, you can open [an issue][new-issue] and discuss with us.
+- You can also join [the mailinglist][mailinglist].
+  The purpose of the mailinglist is to have another form of communication available which is more accepted than Github.
 
 The design process follows the [Collective Code Construction Contract][cccc].
 
@@ -197,3 +202,4 @@ It does the following:
 [cccc]: https://rfc.zeromq.org/spec:42/C4/
 [filter]: http://jsonapi.org/format/#fetching-filtering
 [error-schema]: schemas/error
+[mailinglist]: https://lists.hpi.uni-potsdam.de/listinfo/schul-cloud-content-dienste-offen
