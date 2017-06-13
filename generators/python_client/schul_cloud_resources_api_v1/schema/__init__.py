@@ -1,6 +1,7 @@
 import jsonschema
 import os
 import json
+import sys
 
 
 HERE = os.path.dirname(__file__)
