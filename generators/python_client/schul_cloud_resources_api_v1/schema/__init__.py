@@ -1,6 +1,7 @@
 import jsonschema
 import os
 import json
+import sys
 
 
 HERE = os.path.dirname(__file__)
@@ -16,7 +17,10 @@ def get_resource_schema():
     """Return the json schema for the resource."""
     with open(JSON_SCHEMA_PATH, "rb") as file:
         schema = json.loads(file.read().decode("UTF-8"))
-    schema["id"] = "file://" + JSON_SCHEMA_PATH
+    path = JSON_SCHEMA_PATH
+    if sys.platform.lower().startswith("win") and len(path) >= 2 and path[1] == ":":
+        path = path[2:].replace("\\", "/")
+    schema["id"] = "file://" + path
     return schema
 
 
