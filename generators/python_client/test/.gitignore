@@ -21,3 +21,4 @@
 /test_resource_response_data.py
 /test_resource_response_links.py
 /test_resource_type.py
+/test_jsonapi_meta.py

@@ -2,6 +2,9 @@
 
 cd "`dirname \"$0\"`"
 
+echo "Pass --user as first argument, if the package installatoin failes."
+
+user="$1"
 output="python_client"
 version_ending=""
 config="python_client_config.json"
@@ -35,9 +38,9 @@ done
   set -e
   cd "$output"
   echo "jsonschema==2.6.0" >> "requirements.txt"
-  python3 -m pip install -r requirements.txt \
-                         -r test-requirements.txt \
-                         wheel tox
+  python3 -m pip install $user -r requirements.txt \
+                               -r test-requirements.txt \
+                               wheel tox
   tox
   python3 setup.py sdist bdist_wheel
 )
