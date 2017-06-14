@@ -35,7 +35,7 @@ class Schema(object):
     def get_schema(self):
         """Return the schema."""
         path = os.path.join(self._get_schema_folder(), self._name + ".json")
-        with open(JSON_SCHEMA_PATH, "rb") as file:
+        with open(path, "rb") as file:
             schema = json.loads(file.read().decode("UTF-8"))
         if sys.platform.lower().startswith("win") and len(path) >= 2 and path[1] == ":":
             path = path[2:].replace("\\", "/")
@@ -85,6 +85,7 @@ def get_schemas():
 _resource_schema = get_schemas()["resource"]
 get_resource_schema = _resource_schema.get_schema
 validate_resource = _resource_schema.validate
+is_valid_resource = _resource_schema.is_valid
 get_valid_examples = _resource_schema.get_valid_examples
 get_invalid_examples = _resource_schema.get_invalid_examples
 

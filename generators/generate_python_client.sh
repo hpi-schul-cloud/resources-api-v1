@@ -35,9 +35,9 @@ done
   set -e
   cd "$output"
   echo "jsonschema==2.6.0" >> "requirements.txt"
-  python3 -m pip install -r requirements.txt \
-                         -r test-requirements.txt \
-                         wheel tox
+  python3 -m pip install --user -r requirements.txt \
+                                -r test-requirements.txt \
+                                wheel tox
   tox
   python3 setup.py sdist bdist_wheel
 )
