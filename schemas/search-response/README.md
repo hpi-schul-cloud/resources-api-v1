@@ -121,7 +121,7 @@ Fields:
 
 
 
-[schema]: resource-response.json
+[schema]: search-response.json
 [jsonapi]: http://jsonapi.org/format/
 [resource-api]: ../../README.md#resources-api
 [res]: ../resource/
