@@ -86,7 +86,8 @@ Further Reading:
 ### Search API
 [search]: #search
 
-Issue: [#21](https://github.com/schul-cloud/resources-api-v1/issues/21)
+This API is tested and implemented by the [schul_cloud_search_tests][stest].
+If you want to implement the API, please refer to the tests.
 
 - `GET /v1/search?q=WORDS?filter[ATTRIBUTE]=...&filter[ATTRIBIUTE2]=...&page[offset]=SKIP?page[limit]=LIMIT`  
   Search for some words and filter the result.
@@ -203,3 +204,4 @@ It does the following:
 [filter]: http://jsonapi.org/format/#fetching-filtering
 [error-schema]: schemas/error
 [mailinglist]: https://lists.hpi.uni-potsdam.de/listinfo/schul-cloud-content-dienste-offen
+[stest]: https://github.com/schul-cloud/schul_cloud_search_tests
