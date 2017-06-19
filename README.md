@@ -89,9 +89,9 @@ Further Reading:
 This API is tested and implemented by the [schul_cloud_search_tests][stest].
 If you want to implement the API, please refer to the tests.
 
-- `GET /v1/search?q=WORDS?filter[ATTRIBUTE]=...&filter[ATTRIBIUTE2]=...&page[offset]=SKIP?page[limit]=LIMIT`  
+- `GET /v1/search?Q=WORDS?filter[ATTRIBUTE]=...&filter[ATTRIBIUTE2]=...&page[offset]=SKIP?page[limit]=LIMIT`  
   Search for some words and filter the result.
-  - **q** (required)  
+  - **Q** (required)  
     The query string `WORDS`. They should search at least these object attributes:
     - title
     - content
