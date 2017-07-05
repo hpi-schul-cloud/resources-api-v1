@@ -91,6 +91,13 @@ Fields:
   - If `first` is given, `prev` must be given.
   - On all pages except the last, the sever SHOULD return as many objects as in `limit`, thus `count` SHOULD be equal to `limit`.
   - The `prev` and `next` links MUST not skip objects.
+  - If the end of the resource list is reached, count may be less than limit.  
+    This implies that 
+    - there is no next link and 
+    - if there are resources, the last link is self 
+    - if there are no resources in this request
+      - the last link is pointing to a lesser offset or
+      - the last link is null
   
 - **data** (required)  
   This is an array of [JSONAPI resource objects](http://jsonapi.org/format/#document-resource-objects).
