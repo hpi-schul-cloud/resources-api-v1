@@ -150,7 +150,7 @@
       "type": "string",
       "description": "The id of the resource for the search engine. This must be the same as for the resource api.",
       "example": "1",
-      "pattern": "[!*\"'(),+a-zA-Z0-9$-_@.&+\\-]"
+      "pattern": "^[!*\"'(),+a-zA-Z0-9$-_@.&+\\-]*$"
     },
     "JSONAPI": {
       "type": "object",
