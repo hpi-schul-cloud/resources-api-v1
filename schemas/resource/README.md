@@ -61,11 +61,6 @@ A resource is a JSON object with the following attributes:
 - **thumbnail** (optional)  
   A url to the preview image.
   This could be the first page of a PDF, a small version of an SVG or PNG image.
-- **size** (optional)  
-  The size in bytes to download the source.  
-  This is recommended for pictures, PDFs, ...
-  Interactive content may vary in size, so this is not a must.  
-  Reference: [IEEE LOM, 4.2][ieee-lom]
 - **dimensions** (optional)  
   In case of pictures and movies, this is the resolution e.g. `640pxX480px`.
   In case of a PDF, this could also be "A4" or "letter", ...
