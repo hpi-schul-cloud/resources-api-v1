@@ -28,15 +28,6 @@ A resource is a JSON object with the following attributes:
 - **license** (required)  
   An array of specified lincese strings.
   **TODO**: Ask tutory about their model for remix. #5
-- **providerLevel** (??)  
-  The source can be classified like this:
-  - `schul-cloud` - totally trusted information
-  - `community` - we know who created this information
-  - `external` - someone on the web gave us this information (no authentication)
-  The idea:
-  - The search always displays schul-cloud and community resources
-  - external resources are not displayed to kids, teachers can choose
-  **TODO**: discuss
 - **mimeType** (required)  
   The mime type as defined in [RFC2046][rfc2046]
 - **contentCategory** (required)  
