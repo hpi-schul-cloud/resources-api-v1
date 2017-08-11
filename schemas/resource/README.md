@@ -25,9 +25,9 @@ A resource is a JSON object with the following attributes:
 - **url** (required)  
   The location of the content.  
   It should be HTTP/HTTPS.
-- **license** (required)  
+- **licenses** (required)  
   An array of specified lincese strings.
-  **TODO**: Ask tutory about their model for remix. #5
+  **TODO**: Ask tutory about their model for remix. [#5](https://github.com/schul-cloud/resources-api-v1/issues/5)
 - **providerLevel** (??)  
   The source can be classified like this:
   - `schul-cloud` - totally trusted information
