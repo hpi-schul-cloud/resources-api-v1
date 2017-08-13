@@ -82,7 +82,9 @@ A resource is a JSON object with the following attributes:
   Example:
   - url is https://upload.wikimedia.org/wikipedia/commons/8/8a/LOM_base_schema.svg  
     contextUrl is https://en.wikipedia.org/wiki/File:LOM_base_schema.svg
-
+- **providerName** (optional)  
+  This is the provider of the resource. Examples are be "Wikipedia" or "Khan Academy" or
+  a special channel on YouTube like "The Simple Club".
 
 ### Content Category
 [content-category]: #content-category

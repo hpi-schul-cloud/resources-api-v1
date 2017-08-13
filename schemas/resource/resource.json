@@ -62,6 +62,11 @@
       "type":"number"
     }, "contextUrl": {
       "$ref":"#/definitions/URL"
+    },
+    "providerName" : {
+      "type": "string",
+      "description": "This is the provider of the resource, where the resource belongs to.",
+      "example": "Youtube"
     }
   },
   "definitions": {
