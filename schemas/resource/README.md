@@ -76,7 +76,7 @@ A resource is a JSON object with the following attributes:
   The unit is seconds. The type is float.  
   Reference: [IEEE LOM, 4.7][ieee-lom]
 - **contextUrl** (optional)  
-  This is the url with moer context about the `url`.
+  This is the url with more context about the `url`.
   The contenxt provides more information about the object like license, versions, ...
   The url best referes to a page using [schema](http://schema.org/).
   Example:
