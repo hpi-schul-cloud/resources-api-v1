@@ -37,18 +37,10 @@ A resource is a JSON object with the following attributes:
   - `"l"` for learning object
   - `"rl"` for lerning object conform to at least one Rahmenlehrplan
   - `"t"` tool
-- **subjects** (...)  
-  - required if `contentCategory` is `"rl"`
-  - else optional
-  **TODO**: specify an extensible list (recommendation) for subject strings
 - **languages** (required)  
   A list of languages given by country code.
   This is specified in [IEEE-LOM, Section 1.3][ieee-lom]
   Examples: `de`, `de-ch`
-- **class** (optional)  
-  An array specifying the recommended school class.
-  Examples: `[7]`, `[8, 9]`
-  **TODO**: verify that this is important.
 - **thumbnail** (optional)  
   A url to the preview image.
   This could be the first page of a PDF, a small version of an SVG or PNG image.
