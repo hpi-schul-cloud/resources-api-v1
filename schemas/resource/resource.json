@@ -51,10 +51,6 @@
     "thumbnail": {
       "$ref": "#/definitions/URL"
     },
-    "size": {
-      "type": "integer",
-      "format": "int64"
-    },
     "dimensions": {
       "$ref": "#/definitions/Dimensions"
     },
