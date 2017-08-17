@@ -49,6 +49,12 @@ A resource is a JSON object with the following attributes:
   An array specifying the recommended school class.
   Examples: `[7]`, `[8, 9]`
   **TODO**: verify that this is important.
+- **tags** (optional)  
+  Tags are strings given as a list.
+  If two objects have the same tag, they belong together through thi tag.
+  E.g. in Khan Academy, there is a tag for the topic and the course.
+  Thus, if you search for all resources with the same topic in the tag,
+  you find all resources which belong to the topic.
 - **thumbnail** (optional)  
   A url to the preview image.
   This could be the first page of a PDF, a small version of an SVG or PNG image.
