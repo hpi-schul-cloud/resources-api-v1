@@ -37,10 +37,22 @@ class Schema(object):
         path = os.path.join(self._get_schema_folder(), self._name + ".json")
         with open(path, "rb") as file:
             schema = json.loads(file.read().decode("UTF-8"))
-        if sys.platform.lower().startswith("win") and len(path) >= 2 and path[1] == ":":
-            path = path[2:].replace("\\", "/")
-        schema["id"] = "file://" + path
         return schema
+
+    def get_uri(self):
+        """Return the uri identifying this schema."""
+        return self.get_schema()["id"]
+
+    def get_resolver(self):
+        """Return a jsonschema.RefResolver for the schemas.
+
+        All schemas returned be get_schemas() are resolved locally.
+        """
+        store = {}
+        for schema in get_schemas().values():
+            store[schema.get_uri()] = schema.get_schema()
+        schema = self.get_schema()
+        return jsonschema.RefResolver.from_schema(schema, store=store)
 
     def validate(self, object):
         """Validate an object against the schema.
@@ -49,7 +61,8 @@ class Schema(object):
         If the object does not match the schema, a ValidationException is raised.
         This error allows debugging.
         """
-        jsonschema.validate(object, self.get_schema())
+        resolver=self.get_resolver()
+        jsonschema.validate(object, self.get_schema(), resolver=resolver)
 
     def is_valid(self, object):
         """Return whether an object matches the schema."""

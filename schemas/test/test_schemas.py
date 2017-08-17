@@ -22,6 +22,17 @@ schemas = {
     "error" : os.path.join(SCHEMAS, "error", "error.json"),
 }
 
+def get_resolver(schema):
+    """Return a jsonschema.RefResolver for the schemas.
+
+    All schemas returned be get_schemas() are resolved locally.
+    """
+    store = {}
+    for file in schemas.values():
+        s = load_json_from_file(file)
+        store[s["id"]] = s
+    return jsonschema.RefResolver.from_schema(schema, store=store)
+
 try:
     import jsonschema
 except:
@@ -29,11 +40,11 @@ except:
     raise
 
 def schema_works(schema, instance):
-    jsonschema.validate(instance, schema)
+    jsonschema.validate(instance, schema, resolver=get_resolver(schema))
 
 def schema_fails(schema, instance):
     try:
-        jsonschema.validate(instance, schema)
+        jsonschema.validate(instance, schema, resolver=get_resolver(schema))
         assert False, "Schema worked"
     except jsonschema.exceptions.ValidationError:
         pass
@@ -86,7 +97,6 @@ def main():
     for name, path in schemas.items():
         if choose_schema(name):
             schema = load_json_from_file(path)
-            schema["id"] = "file://" + os.path.abspath(path).replace("\\", "/")
             execute_tests(name, schema)
         else:
             print("SKIP", name)

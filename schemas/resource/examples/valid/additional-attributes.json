@@ -1,0 +1,11 @@
+{
+  "title": "Example Website",
+  "url": "https://example.org",
+  "licenses": [],
+  "mimeType": "text/html",
+  "contentCategory": "l",
+  "languages": ["en-en"],
+  "addition-attribute": true,
+  "Valid": ["new", "attribute"],
+  "a": "a"
+}

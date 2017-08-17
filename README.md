@@ -180,6 +180,7 @@ It does the following:
 ## Further Reading
 - [README Driven Development][rdd]
 - [HTTP statuses](https://httpstatuses.com/)
+- [License Choice](http://hintjens.com/blog:41)
 
 
 [rdd]: http://tom.preston-werner.com/2010/08/23/readme-driven-development.html
