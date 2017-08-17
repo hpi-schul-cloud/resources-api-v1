@@ -60,6 +60,12 @@
       "$ref":"#/definitions/URL"
     }
   },
+  "patternProperties": {
+    "^([a-zA-Z0-9]([a-zA-Z0-9_-]*[a-zA-Z0-9])?)$": {
+      "description": "All unspecified members are jsonapi compatible and url save. See http://jsonapi.org/format/#document-member-names"
+    }
+  },
+  "additionalProperties": false,
   "definitions": {
     "URL":{
       "type": "string",
