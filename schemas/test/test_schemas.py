@@ -19,6 +19,7 @@ schemas = {
     "resource" : os.path.join(SCHEMAS, "resource", "resource.json"),
     "search-response" : os.path.join(SCHEMAS, "search-response", "search-response.json"),
     "error" : os.path.join(SCHEMAS, "error", "error.json"),
+    "license" : os.path.join(SCHEMAS, "license", "license.json"),
 }
 
 def get_resolver(schema):
