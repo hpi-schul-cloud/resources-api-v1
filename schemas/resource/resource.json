@@ -21,6 +21,11 @@
     "url": {
       "$ref": "#/definitions/URL"
     },
+    "description": {
+      "type": "string",
+      "title": "Resource Description",
+      "description": "This is a textual description of the resource."
+    },
     "licenses": {
       "type": "array",
       "items": {
