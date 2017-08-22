@@ -50,12 +50,6 @@
         "description": "A tag which connects this resource to other resources with the same tag."
       }
     },
-    "curricula": {
-      "type": "array",
-      "items": {
-        "$ref": "../curriculum/curriculum.json"
-      }
-    },
     "thumbnail": {
       "$ref": "#/definitions/URL"
     },
@@ -93,9 +87,6 @@
       "type":"string",
       "pattern": "^[a-z]+(-[a-z]+)?$",
       "example":"de-de"
-    },
-    "Subject": {
-      "type":"string"
     },
     "Dimensions": {
       "type":"string",
