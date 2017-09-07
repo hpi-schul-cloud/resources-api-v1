@@ -6,11 +6,11 @@ echo "Pass --user as first argument, if the package installatoin failes."
 
 user="$1"
 output="python_client"
-version_ending=""
+version_ending="0"
 config="python_client_config.json"
 if [ -n "$TRAVIS_BUILD_NUMBER" ]; then
   # see https://docs.travis-ci.com/user/environment-variables/
-  version_ending=".${TRAVIS_BUILD_NUMBER}"
+  version_ending="${TRAVIS_BUILD_NUMBER}"
 fi
 
 
