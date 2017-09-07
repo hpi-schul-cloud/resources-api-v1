@@ -6,10 +6,9 @@ clients and servers.
 Generation uses the [swagger-codegen][swagger-codegen] repository.
 We generate
 
-- Python server
 - Python Client
   - with upload to pypi
-- upload all generated code to the github releases
+- node package
 
 
 ## Installation
@@ -22,11 +21,7 @@ Install Java:
 
 You can generate the [python client](https://pypi.python.org/pypi/schul-cloud-ressources-api-v1) like this:
 
-    ./generate_python_client.sh
-    
-You can generate the server like this:
-
-    ./generate_python_server.sh
+    scripts/generate_python_client.sh
     
 Additionally, you may want to have a look at [the server tests](https://github.com/schul-cloud/schul_cloud_ressources_server_tests) if you want to implement a server.
 
