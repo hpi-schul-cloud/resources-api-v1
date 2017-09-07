@@ -23,6 +23,8 @@ echo "{
         \"publishConfig\" : { \"access\" : \"public\" }
       }" > "$config"
 
+../scripts/copy_schemas_to "schul-cloud-resources-api-v1/schemas"
+
 (
   cd schul-cloud-resources-api-v1
   npm publish
