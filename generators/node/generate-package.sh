@@ -19,12 +19,13 @@ version="1.0.0$version_ending"
 # see
 #    https://docs.npmjs.com/files/package.json
 echo "{
-        \"name\": \"schul-cloud-resources-api-v1\",
+        \"name\": \"@schul-cloud/schul-cloud-resources-api-v1\",
         \"version\" : \"$version\",
         \"homepage\" : \"https://github.com/schul-cloud/resources-api-v1\",
         \"description\" : \"The learning resources' api definitions for Schul-Cloud.\",
         \"license\" : \"AGPL-1.0\",
-        \"private\" : false
+        \"private\" : false,
+        \"publishConfig\" : { \"access\" : \"public\" }
       }" > "$config"
 
 (

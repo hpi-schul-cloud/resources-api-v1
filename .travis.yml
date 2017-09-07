@@ -17,17 +17,12 @@ script:
 
 before_deploy:
 - scripts/create_pypi_login_for_travis.sh
+- scripts/create_npmrc_for_travis.sh
 
 deploy:
 - provider: script
-  script: scripts/deploy.sh
-  on:
-    branch: master
-  repo: schul-cloud/ressources-api-v1
-  skip_cleanup: true
-- provider: npm
-  email: niccokunzmann@gmx.de
-  api_key: $NPM_TOKEN
+  script: generators/node/generate-package.sh # scripts/deploy.sh
   on:
     branch: add-npm-module
   repo: schul-cloud/ressources-api-v1
+  skip_cleanup: true
