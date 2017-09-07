@@ -21,7 +21,7 @@ echo "{
         \"packageVersion\" : \"1.0.0$version_ending\",
         \"packageUrl\" : \"https://github.com/schul-cloud/resources-api-v1\"
       }" > "$config"
-echo "Configutation:"
+echo "Configuration:"
 cat "$config"
 echo
 ./generate_code.sh python "$output" --config "$config"
