@@ -25,3 +25,9 @@ deploy:
     branch: master
   repo: schul-cloud/ressources-api-v1
   skip_cleanup: true
+- provider: npm
+  email: niccokunzmann@gmx.de
+  api_key: $NPM_TOKEN
+  on:
+    branch: add-npm-module
+  repo: schul-cloud/ressources-api-v1
