@@ -6,6 +6,12 @@
 
 set -e
 
+echo "If you pass the --no-upload parameter, you do not publish the package."
+upload="true"
+if [ "$1" == "--no-upload" ]; then
+  upload="false"
+fi
+
 cd "`dirname \"$0\"`"
 
 config="./schul-cloud-resources-api-v1/package.json"
@@ -25,7 +31,9 @@ echo "{
 
 ../scripts/copy_schemas_to "schul-cloud-resources-api-v1/schemas"
 
-(
-  cd schul-cloud-resources-api-v1
-  npm publish
-)
+if [ "$upload" == "true" ]; then
+  (
+    cd schul-cloud-resources-api-v1
+    npm publish
+  )
+fi
