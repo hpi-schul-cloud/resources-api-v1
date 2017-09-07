@@ -14,7 +14,7 @@ install:
 
 script:
 - python schemas/test/test_schemas.py
-- generators/generate_python_client.sh
+- generators/scripts/generate_python_client.sh
 
 before_deploy:
 - scripts/create_pypi_login_for_travis.sh
