@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eO
+set -e
 
 
 cd "`dirname \"$0\"`"
