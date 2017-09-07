@@ -9,12 +9,7 @@ set -e
 cd "`dirname \"$0\"`"
 
 config="./schul-cloud-resources-api-v1/package.json"
-version_ending="0"
-if [ -n "$TRAVIS_BUILD_NUMBER" ]; then
-  # see https://docs.travis-ci.com/user/environment-variables/
-  version_ending="${TRAVIS_BUILD_NUMBER}"
-fi
-version="1.0.$version_ending"
+version="`../scripts/version`"
 
 # see
 #    https://docs.npmjs.com/files/package.json
