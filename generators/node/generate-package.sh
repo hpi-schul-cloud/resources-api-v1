@@ -39,7 +39,8 @@ echo "{
         `
           \"LICENSE\",
           \"schul-cloud-resources-api-v1.js\",
-          \"README.md\"
+          \"README.md\",
+          \"test/test.js\"
         ],
         \"directories\" : {
           \"test\": \"test\",
