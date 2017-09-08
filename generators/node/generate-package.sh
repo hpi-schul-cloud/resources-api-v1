@@ -46,6 +46,9 @@ echo "{
           \"lib\" : \"lib\"
         },
         \"main\" : \"lib/main.js\",
+        \"dependencies\": {
+          \"jsonschema\" : \"1.2.0\"
+        },
         \"devDependencies\" : {
           \"chai\" : \"4.1.2\",
           \"mocha\" : \"3.5.0\"
@@ -67,8 +70,10 @@ cp ../../LICENSE "$output"
 (
   set -e
   cd "$output"
-  echo "# Generating package: "
+  echo "# Generating package:"
   npm pack
+  echo "# Install dependecies:"
   npm install
+  echo "# Run tests"
   npm test
 )
