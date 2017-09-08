@@ -11,7 +11,7 @@ cd "`dirname \"$0\"`"
 output="./schul-cloud-resources-api-v1"
 config="$output/package.json"
 version="`../scripts/version`"
-schemas="$output/schemas"
+schemas="$output/lib/schemas"
 
 echo "# Copy schemas to package"
 
@@ -25,18 +25,35 @@ echo "{
         \"homepage\" : \"https://github.com/schul-cloud/resources-api-v1\",
         \"description\" : \"The learning resources' api definitions for Schul-Cloud.\",
         \"license\" : \"AGPL-1.0\",
+        \"repository\": {
+          \"type\" : \"git\",
+          \"url\" : \"https://github.com/schul-cloud/resources-api-v1.git\"
+        },
         \"private\" : false,
         \"publishConfig\" : { \"access\" : \"public\" },
         \"files\" : [
 `
-          for file in \`( cd "$output" && find schemas -name \*.json )\`; do
+          for file in \`( cd "$output" && find lib/schemas -name \*.json )\`; do
             echo "          \\\"$file\\\","
           done
         `
           \"LICENSE\",
           \"schul-cloud-resources-api-v1.js\",
           \"README.md\"
-        ]
+        ],
+        \"directories\" : {
+          \"test\": \"test\",
+          \"lib\" : \"lib\"
+        },
+        \"main\" : \"lib/main.js\",
+        \"devDependencies\" : {
+          \"chai\" : \"4.1.2\",
+          \"mocha\" : \"3.5.0\"
+        },
+        \"scripts\" : {
+          \"test\": \"npm run mocha\",
+          \"test\": \"mocha test/ --recursive\"
+        }
       }" > "$config"
 
 echo "# Config: "
@@ -48,7 +65,10 @@ cp ../../LICENSE "$output"
 # TODO: test the package
 
 (
+  set -e
   cd "$output"
   echo "# Generating package: "
   npm pack
+  npm install
+  npm test
 )
