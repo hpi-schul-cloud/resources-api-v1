@@ -5,6 +5,8 @@ set -e
 dst="$1"
 
 src="`dirname \"$0\"`/../../schemas"
+echo "deleting all files in $dst"
+rm -rf "$dst"
 echo "copying all json files from $src to $dst"
 for file in `( cd "$src" && find . -name \*.json )`; do
   mkdir -p "$dst/`dirname \"$file\"`"
