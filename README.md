@@ -95,7 +95,7 @@ If you want to implement the API, please refer to the tests.
   - **Q** (required)  
     The query string `WORDS`. They should search at least these object attributes:
     - title
-    - content
+    - description
   - **ATTRIBUTE** (optional)  
     To filter attributes of the objects, see [the jsonapi definitions][filter].
     Example: `filter[title]=my%20title`  
