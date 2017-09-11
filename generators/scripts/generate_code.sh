@@ -19,7 +19,7 @@ wget -c "http://central.maven.org/maven2/io/swagger/swagger-codegen-cli/$version
 echo "Generating code"
 # see https://github.com/swagger-api/swagger-codegen#getting-started
 java -jar "$jar" generate \
-     -i ../api-definition/swagger.yaml \
+     -i ../../api-definition/swagger.yaml \
      -l "$language" \
      -o "$output" "$@"
 

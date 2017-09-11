@@ -3,6 +3,7 @@
 [![CCCC draft](https://img.shields.io/badge/CCCC-draft-yellow.svg)][cccc]
 [![Build Status](https://travis-ci.org/schul-cloud/resources-api-v1.svg?branch=master)][travis]
 [![PyPI](https://img.shields.io/pypi/v/schul-cloud-resources-api-v1.svg)][pypi]
+[![npm (scoped)](https://img.shields.io/npm/v/@schul-cloud/schul-cloud-resources-api-v1.svg)][npm]
 
 The API specification to add content to the Schul-Cloud.
 This is the [Resources API from the architecture][arch].
@@ -206,3 +207,4 @@ It does the following:
 [error-schema]: schemas/error
 [mailinglist]: https://lists.hpi.uni-potsdam.de/listinfo/schul-cloud-content-dienste-offen
 [stest]: https://github.com/schul-cloud/schul_cloud_search_tests
+[npm]: https://www.npmjs.com/package/@schul-cloud/schul-cloud-resources-api-v1
