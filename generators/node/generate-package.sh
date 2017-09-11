@@ -38,17 +38,23 @@ echo "{
           done
         `
           \"LICENSE\",
-          \"schul-cloud-resources-api-v1.js\",
           \"README.md\",
+          \"lib/index.js\",
+          \"lib/validator.js\",
           \"test/test.js\"
         ],
         \"directories\" : {
           \"test\": \"test\",
           \"lib\" : \"lib\"
         },
-        \"main\" : \"lib/main.js\",
+        \"main\" : \"lib/index.js\",
         \"dependencies\": {
-          \"jsonschema\" : \"1.2.0\"
+          \"ajv\" : \"5.2.2\",
+            \"co\" : \"4.6.0\",
+            \"fast-deep-equal\" : \"1.0.0\",
+            \"json-schema-traverse\" : \"0.3.1\",
+            \"json-stable-stringify\" : \"1.0.1\",
+              \"jsonify\" : \"0.0.0\"
         },
         \"devDependencies\" : {
           \"chai\" : \"4.1.2\",
@@ -56,7 +62,7 @@ echo "{
         },
         \"scripts\" : {
           \"test\": \"npm run mocha\",
-          \"test\": \"mocha test/ --recursive\"
+          \"mocha\": \"mocha test/ --recursive\"
         }
       }" > "$config"
 

@@ -1,5 +1,5 @@
 var expect = require("chai").expect;
-var api = require("../lib/main.js");
+var api = require("../lib/index.js");
 var schemas = api.schemas;
 
 describe("api", function(){
@@ -17,6 +17,10 @@ describe("api", function(){
   api.getSchemaNames().forEach(function(name){
     var schema = schemas[name];
     describe("schema \"" + name + "\"", function(){
+      it("must have an id property", function() {
+        var id = schema.getId();
+        expect(typeof id).to.equal("string");
+      })
       it("must have a name property", function() {
         expect(schema).to.have.a.property("name", name);
       })
