@@ -1,11 +1,11 @@
 const path = require("path");
 const fs = require("fs");
-const jsonschema = require("jsonschema");
 
 exports = module.exports = {};
 
 var schemas_path = path.join(__dirname, "schemas");
-var validator = new jsonschema.Validator();
+var validator = require("./validator");
+
 
 function getJSONFilesFromDirectory(directory) {
   var files = [];
@@ -31,10 +31,10 @@ function Schema(filename, schema_path) {
     return getJSONFilesFromDirectory(path.join(this.path, "examples", "invalid"));
   }
   this.isValid = function(object) {
-    return this.getValidationErrors(object).length == 0;
+    return validator.validate(this.getId(), object);
   }
   this.getValidationErrors = function(object) {
-    return validator.validate(object, this.getId()).errors;
+    return this.isValid(object).errors;
   }
   this.getSchema = function() {
     return this._schema;
@@ -50,12 +50,13 @@ exports.getSchemaNames = function(){
   return schemaNames;
 }
 exports.schemas = {};
+exports.ajv = validator;
 
 fs.readdirSync(schemas_path).forEach(function(item) {
   var schema_path = path.join(schemas_path, item);
   var schema = new Schema(item, schema_path);
   exports.schemas[schema.name] = schema;
   schemaNames.push(schema.name);
-  validator.addSchema(schema.getSchema(), schema.getId());
+  validator.addSchema(schema.getSchema());
 })
 

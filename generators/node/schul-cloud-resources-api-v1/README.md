@@ -59,6 +59,11 @@ Each `schema` in the `api.schemas` has certain attributes and functions:
 - `schema.getId()`
   return the identifier of the raw schema.
 
+This module uses [ajv][ajv].
+Thus, you can gat the collected schemas also as `ajv` object:
+
+    api.ajv
+
 ## Tests & Development
 
 To run the tests, run the following commands for installation:
@@ -73,3 +78,4 @@ You can [edit this file on GitHub][this].
 
 [schemas]: https://github.com/schul-cloud/resources-api-v1/tree/master/schemas
 [this]: https://github.com/schul-cloud/resources-api-v1/tree/master/generators/node/schul-cloud-resources-api-v1/README.md
+[ajv]: https://github.com/epoberezkin/ajv
