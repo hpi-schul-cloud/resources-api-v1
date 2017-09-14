@@ -5,5 +5,5 @@ set -e
 
 cd "`dirname \"$0\"`"
 
-./deploy_pypi.sh
+./deploy-pypi.sh
 ../generators/node/upload.sh
