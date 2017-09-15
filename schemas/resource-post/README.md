@@ -8,10 +8,12 @@ This is the standart and swagger needs to be synced accordinf to this.
 Example:
 ```
 {
-  "type": "resource",
-  "id" : "optional-id",
-  "attributes" : {
-    "title" : "... see ../resource"
+  "data": {
+    "type": "resource",
+    "id" : "optional-id",
+    "attributes" : {
+      "title" : "... see ../resource"
+    }
   }
 }
 ```
