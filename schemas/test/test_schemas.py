@@ -14,13 +14,14 @@ else:
 
 HERE = os.path.dirname(__file__) or "."
 SCHEMAS = os.path.join(HERE, "..")
-# add schemas to test below
-schemas = {
-    "resource" : os.path.join(SCHEMAS, "resource", "resource.json"),
-    "search-response" : os.path.join(SCHEMAS, "search-response", "search-response.json"),
-    "error" : os.path.join(SCHEMAS, "error", "error.json"),
-    "license" : os.path.join(SCHEMAS, "license", "license.json"),
-}
+
+schemas = {}
+def add_schema(name):
+    file = os.path.join(SCHEMAS, name, name + ".json")
+    if os.path.exists(file):
+        schemas[name] = file
+for schema_folder in os.listdir(SCHEMAS):
+    add_schema(schema_folder)
 
 def get_resolver(schema):
     """Return a jsonschema.RefResolver for the schemas.

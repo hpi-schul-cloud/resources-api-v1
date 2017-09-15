@@ -1,0 +1,17 @@
+{
+  "data": {
+    "type": "resource",
+    "attributes": {
+      "title": "Example Website",
+      "url": "https://example.org",
+      "licenses": [],
+      "mimeType": "text/html",
+      "contentCategory": "l",
+      "languages": [
+        "en-en"
+      ],
+      "thumbnail": "http://cache.schul-cloud.org/thumbs/k32164876328764872384.jpg"
+    },
+    "id": "{cornelsen-physics-1}"
+  }
+}
