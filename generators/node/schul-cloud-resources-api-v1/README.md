@@ -63,6 +63,23 @@ This module uses [ajv][ajv].
 Thus, you can gat the collected schemas also as `ajv` object:
 
     api.ajv
+    
+## Example: Feathers Validation Hook
+
+If you want to validate a resource which has been posted to the
+[Resource API][api], you can use this code in feathers:
+
+```
+const commonHooks = require('feathers-hooks-common');
+const api = require("@schul-cloud/schul-cloud-resources-api-v1");
+
+module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
+  var schema = api.schemas.resource.getSchema();
+  return commonHooks.validateSchema(schema, api.ajv);
+};
+```
+
+Then, you add the hook to the feathers hook by calling it.
 
 ## Tests & Development
 
@@ -79,3 +96,5 @@ You can [edit this file on GitHub][this].
 [schemas]: https://github.com/schul-cloud/resources-api-v1/tree/master/schemas
 [this]: https://github.com/schul-cloud/resources-api-v1/tree/master/generators/node/schul-cloud-resources-api-v1/README.md
 [ajv]: https://github.com/epoberezkin/ajv
+[api]
+
