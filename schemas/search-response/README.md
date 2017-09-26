@@ -29,7 +29,7 @@ A successful response is
   Equivalent to the error responses of the [resources api][resource-api],
   this must be a JSONAPI-compatible response with some more information.
 - **404**  
-  The server must not return a 404 response if no resources were found.
+  The server **must not** return a 404 response if no resources were found.
   The server instead returns a `200 OK` with an empty `data` array.
   404 is reserved for invalid paths.
 
